@@ -1,0 +1,370 @@
+@font-face {
+    font-family: nunitoBoldItalic;
+    src: url(../fonts/static/Nunito-BoldItalic.ttf);
+}
+
+@font-face {
+    font-family: nunitoBold;
+    src: url(../fonts/static/Nunito-Bold.ttf);
+}
+
+@font-face {
+    font-family: nunitoExtraBold;
+    src: url(../fonts/static/Nunito-ExtraBold.ttf);
+}
+
+@font-face {
+    font-family: nunitoRegular;
+    src: url(../fonts/static/Nunito-Regular.ttf);
+}
+
+:root{
+    --background: #f5f0f0;
+    --red: #782c26;
+    --inputBorder: #767676;
+    --inputText: #3c4141;
+    --inputPlaceholder: #797775;
+    --pageContentbackground: #ffffff;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    width: 100%;
+    /* height: 100%; */
+    /* height: 100%; */
+    /* background-color: var(--background); */
+}
+
+
+
+body{
+    width: 100%;
+    /* height: 100%; */
+    background-color: var(--background);
+    background-image: url('../images/Pattern.png');
+    background-repeat: repeat;
+}
+
+.PageContentDiv{
+    width: 1500px;
+    display: block;
+    margin: auto;
+    min-height: 100vh;
+    padding-bottom: 38px;
+    background-color: var(--background);
+}
+
+.PageContent{
+    width: 1500px;
+    background-color: var(--pageContentbackground);
+    /* min-height: 100vh; */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.Header{
+    /* width: 100vw; */
+    /* height: 11vw; */
+    /* height: 170px; */
+    /* height: 182px; */
+    width: 1500px;
+    /* margin-bottom: 1.5vw; */
+    margin-bottom: 29px;
+}
+
+.Header .HeaderLogoImage{
+    padding-top: 0.5vw;
+    /* margin-left: 1vw; */
+    text-align: center;
+    line-height: 88px;
+    vertical-align: middle;
+    background-color: var(--red);
+}
+
+.Header .HeaderLogoImage p{
+    /* font-size: 5vw; */
+    font-size: 60px;
+    margin: 0 !important;
+    font-family: 'nunitoBoldItalic';
+    color: var(--background);
+}
+
+.Header .HeaderLogoImage span{
+    font-size: 88px;
+    line-height: 88px;
+}
+
+
+.Header .HeaderNavigation{
+    /* width: 100%; */
+    width: 1500px;
+    text-align: center;
+    background-color: var(--background);
+    /* height: 4vw; */
+    /* margin-bottom: 4vw; */
+    /* height: 77px; */
+}
+
+.Header .HeaderNavigation > ul{
+    width: 1500px;
+    /* width: 100%; */
+    /* margin-left: 10%; */
+    text-align: center;
+}
+
+.Header .HeaderNavigation ul > li{
+    display: inline-block;
+    width: auto;
+    /* line-height: 1.5vw; */
+    line-height: 29px;
+}
+
+.Header .HeaderNavigation ul li a{
+    font-family: 'nunitoBold';
+    /* font-size: 1.5vw; */
+    /* padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 1%;
+    padding-top: 1%; */
+    font-size: 29px;
+    color: #000000;
+    text-decoration: none;
+    display: inline-block;
+    padding: 20px 20px 20px 20px;
+    box-sizing: border-box;
+}
+
+.Header .HeaderNavigation ul li a:hover{
+    background-color: var(--red);
+    color: var(--background);
+    transition: ease 0.2s;
+}
+
+.Header .HeaderNavigation ul li ul{
+    display: none;
+}
+
+.Header .HeaderNavigation ul li ul{
+    text-align: left;
+}
+
+.Header .HeaderNavigation ul li ul li{
+    display: block;
+    width: auto;
+    /* padding-top: 6px; */
+    /* padding-bottom: 6px; */
+}
+
+.Header .HeaderNavigation ul li:hover ul{
+    margin-left: 1%;
+    background-color: var(--red);
+    position:absolute;
+    display: block;
+    width: 270px;
+    z-index: 5;
+}
+
+.Header .HeaderNavigation ul li ul li a{
+    padding-left: 20px;
+    /* padding-left: 5%; */
+    color: var(--background);
+    /* font-size: 1.5vw; */
+    font-size: 29px;
+    width:100%;
+}
+
+.Header .HeaderNavigation ul li ul li a:hover{
+    background-color: var(--background);
+    color:var(--red);
+    transition: ease 0.2s;
+}
+
+.RegisterForm{
+    /*width: 26vw;
+    margin-left: 37vw; */
+    width: 500px;
+    margin-left: 500px;
+    /* margin-bottom: 10vw; */
+    padding-bottom: 192px;
+    margin-bottom: 38px;
+}
+
+.RegisterForm form .FormHeading{
+    width: 100%;
+    text-align: center;
+    /* margin-bottom: 1vw; */
+    margin-bottom: 19px;
+}
+
+.RegisterForm form .FormHeading h1{
+    /* font-size: 2.5vw; */
+    font-size: 48px;
+    color: var(--red);
+    font-family: 'nunitoExtraBold';
+}
+
+.CustomUploadFile {
+    width: 23%;
+    /* height: 7vw; */
+    height: 135px;
+    margin-right: 3%;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: bottom;
+    /* border: 0.1vw solid var(--inputBorder); */
+    border: 2px solid var(--inputBorder);
+    cursor: pointer;
+    /* margin-bottom: 1vw; */
+    margin-bottom: 19px;
+    /* background-image: url('../images/ProfileIcon.png'); */
+    /* position: relative; */
+    /* background-color: #fff; */
+    position: relative;
+}
+
+.CustomUploadFile .ImageContainer{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 3;
+    background-color: #fff;
+}
+
+.CustomUploadFile .ImageContainer img{
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    top: 20%;
+    left: 20%;
+    vertical-align: middle;
+}
+
+.RegisterForm form .CustomUploadFile input[type=file]{
+    width: 100%;
+    height: 100%;
+    margin-right: 3%;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: bottom;
+    /* border: 0.1vw solid var(--inputBorder); */
+    border: 2px solid var(--inputBorder);
+    /* display: none; */
+    position: absolute;
+}
+
+.RegisterForm .MailAndPass{
+    width: 73%;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.RegisterForm form input{
+    width: 100%;
+    /* height: 3vw;
+    margin-bottom: 1vw; */
+    height: 58px;
+    margin-bottom: 19px;
+    font-family: 'nunitoBold';
+    /* font-size: 1vw; */
+    font-size: 19px;
+    color: var(--inputText);
+    box-sizing: border-box;
+    /* border: 0.1vw solid var(--inputBorder); */
+    border: 2px solid var(--inputBorder);
+    padding-left: 2%;
+}
+
+.RegisterForm form input::placeholder{
+    /* font-size: 1vw; */
+    font-size: 19px;
+    padding-top: 2%;
+    padding-right: 2%;
+    font-family: 'nunitoRegular';
+    color: var(--inputPlaceholder);
+    /* padding-left: 2%; */
+}
+
+.RegisterForm form ul{
+    list-style: none;
+    width: 100%;
+    text-align: center;
+    /* margin-bottom: 1vw; */
+    margin-bottom: 19px;
+}
+
+.RegisterForm form ul li{
+    box-sizing: border-box;
+    width: 49%;
+    display: inline-block;
+    font-size: 19px;
+}
+
+.RegisterForm form ul li input{
+    width: 10%;
+    vertical-align: middle;
+    margin-bottom: 0;
+    /* line-height: 1.2vw; */
+    line-height: 19px;
+    margin-left: 2%;
+}
+
+.RegisterForm form ul li span{
+    font-family: 'nunitoRegular';
+    /* font-size: 1.2vw;
+    line-height: 1.2vw; */
+    font-size: 19px;
+    line-height: 19px;
+    vertical-align: middle;
+    margin-left: 2%;
+}
+
+.RegisterForm form p{
+    display: inline-block;
+    font-family: 'nunitoRegular';
+    /* font-size: 0.8vw; */
+    /* margin-bottom: 1vw; */
+    font-size: 15px;
+    margin-bottom: 19px;
+}
+
+.RegisterForm form a{
+    font-family: 'nunitoRegular';
+    /* font-size: 0.8vw; */
+    /* margin-bottom: 1vw; */
+    font-size: 15px;
+    margin-bottom: 19px;
+    text-decoration: none;
+    color:var(--red);
+}
+
+.RegisterForm form a:hover{
+    text-decoration: underline;
+}
+
+.RegisterForm form button{
+    box-sizing: border-box;
+    width: 100%;
+    /* height: 3vw; */
+    height: 58px;
+    text-align: center;
+    font-family: 'nunitoRegular';
+    /* font-size: 1vw; */
+    font-size: 19px;
+    color: var(--background);
+    background-color: var(--red);
+    /* border: 0.1vw solid var(--red); */
+    border: 2px solid var(--red);
+}
+
+.RegisterForm form button:hover{
+    background-color: var(--background);
+    color: var(--red);
+    transition: ease 0.2s;
+    cursor: pointer;
+}

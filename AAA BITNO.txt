@@ -1,0 +1,9 @@
+Da bi php radio mislim da je neophodni pokrenuti preko WAMPA localhost-a.
+
+Preko phpMyAdmin neophodno je ucitati bazu bazag01 i tabelu korisnici u njoj. 
+
+admin = 1
+autor = 2
+citaoc = 3
+
+ime prezime telefon email sifra adresa tip slika datumregistracije

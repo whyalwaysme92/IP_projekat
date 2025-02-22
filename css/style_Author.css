@@ -1,0 +1,435 @@
+@font-face {
+    font-family: nunitoBoldItalic;
+    src: url(../fonts/static/Nunito-BoldItalic.ttf);
+}
+
+@font-face {
+    font-family: nunitoBold;
+    src: url(../fonts/static/Nunito-Bold.ttf);
+}
+
+@font-face {
+    font-family: nunitoExtraBold;
+    src: url(../fonts/static/Nunito-ExtraBold.ttf);
+}
+
+@font-face {
+    font-family: nunitoRegular;
+    src: url(../fonts/static/Nunito-Regular.ttf);
+}
+
+:root{
+    --background: #f5f0f0;
+    --red: #782c26;
+    --inputBorder: #767676;
+    --inputText: #3c4141;
+    --inputPlaceholder: #797775;
+    --pageContentbackground: #ffffff;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    width: 100%;
+    /* height: 100%; */
+    /* height: 100%; */
+    /* background-color: var(--background); */
+}
+
+
+
+body{
+    width: 100%;
+    /* height: 100%; */
+    background-color: var(--background);
+    background-image: url('../images/Pattern.png');
+    background-repeat: repeat;
+}
+
+.PageContentDiv{
+    width: 1500px;
+    display: block;
+    margin: auto;
+    min-height: 100vh;
+    padding-bottom: 38px;
+    background-color: var(--background);
+}
+
+.PageContent{
+    width: 1500px;
+    background-color: var(--pageContentbackground);
+    /* min-height: 100vh; */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.Header{
+    /* width: 100vw; */
+    /* height: 11vw; */
+    /* height: 170px; */
+    /* height: 182px; */
+    width: 1500px;
+    /* margin-bottom: 1.5vw; */
+    margin-bottom: 29px;
+}
+
+.Header .HeaderLogoImage{
+    padding-top: 0.5vw;
+    /* margin-left: 1vw; */
+    text-align: center;
+    line-height: 88px;
+    vertical-align: middle;
+    background-color: var(--red);
+}
+
+.Header .HeaderLogoImage p{
+    /* font-size: 5vw; */
+    font-size: 60px;
+    margin: 0 !important;
+    font-family: 'nunitoBoldItalic';
+    color: var(--background);
+}
+
+.Header .HeaderLogoImage span{
+    font-size: 88px;
+    line-height: 88px;
+}
+
+
+.Header .HeaderNavigation{
+    /* width: 100%; */
+    width: 1500px;
+    text-align: center;
+    background-color: var(--background);
+    /* height: 4vw; */
+    /* margin-bottom: 4vw; */
+    /* height: 77px; */
+}
+
+.Header .HeaderNavigation > ul{
+    width: 1500px;
+    /* width: 100%; */
+    /* margin-left: 10%; */
+    text-align: center;
+}
+
+.Header .HeaderNavigation ul > li{
+    display: inline-block;
+    width: auto;
+    /* line-height: 1.5vw; */
+    line-height: 29px;
+}
+
+.Header .HeaderNavigation ul li a{
+    font-family: 'nunitoBold';
+    /* font-size: 1.5vw; */
+    /* padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 1%;
+    padding-top: 1%; */
+    font-size: 29px;
+    color: #000000;
+    text-decoration: none;
+    display: inline-block;
+    padding: 20px 20px 20px 20px;
+    box-sizing: border-box;
+}
+
+.Header .HeaderNavigation ul li a:hover{
+    background-color: var(--red);
+    color: var(--background);
+    transition: ease 0.2s;
+}
+
+.Header .HeaderNavigation ul li ul{
+    display: none;
+}
+
+.Header .HeaderNavigation ul li ul{
+    text-align: left;
+}
+
+.Header .HeaderNavigation ul li ul li{
+    display: block;
+    width: auto;
+    /* padding-top: 6px; */
+    /* padding-bottom: 6px; */
+}
+
+.Header .HeaderNavigation ul li:hover ul{
+    margin-left: 1%;
+    background-color: var(--red);
+    position:absolute;
+    display: block;
+    width: 270px;
+    z-index: 5;
+}
+
+.Header .HeaderNavigation ul li ul li a{
+    padding-left: 20px;
+    /* padding-left: 5%; */
+    color: var(--background);
+    /* font-size: 1.5vw; */
+    font-size: 29px;
+    width:100%;
+}
+
+.Header .HeaderNavigation ul li ul li a:hover{
+    background-color: var(--background);
+    color:var(--red);
+    transition: ease 0.2s;
+}
+
+.Authors{
+    width: 1500px;
+    /* margin-bottom: 2vw; */
+    padding-bottom: 38px;
+    margin-bottom: 38px;
+}
+
+.Authors .HeadingDiv{
+    text-align: center;
+    /* margin-bottom: 1.5vw; */
+    margin-bottom: 2%;
+}
+
+.Authors .HeadingDiv h1{
+    /* font-size: 2.5vw; */
+    font-size: 48px;
+    font-family: 'nunitoExtraBold';
+    color: var(--red);
+}
+
+.Authors .AllAuthors{
+    width: 100%;
+}
+
+.AboutAuthor .HeadingDiv{
+    text-align: center;
+    margin-bottom: 1.5vw;
+}
+
+.Authors .AllAuthors .OneAuthorData{
+    box-sizing: border-box;
+    width: 70%;
+    margin-left: 15%;
+    padding-bottom: 2%;
+    margin-bottom: 2%;
+    /* border-bottom: 0.1vw solid var(--inputBorder); */
+    border-bottom: 2px solid var(--inputBorder);
+}
+
+.Authors .AllAuthors .OneAuthorData .AuthorImageDiv{
+    box-sizing: border-box;
+    display: inline-block;
+    /* border: 0.1vw solid var(--inputBorder); */
+    border: 2px solid var(--inputBorder);
+    width: 10%;
+    aspect-ratio: 1/1;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.Authors .AllAuthors .OneAuthorData .AuthorImageDiv img{
+    width: 100%;
+    aspect-ratio: 1/1;
+    height: auto;
+}
+
+.Authors .AllAuthors .OneAuthorData .AuthorInformations{
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+    width: 50%;
+    margin-left: 20%;
+    /* margin-right: 5%; */
+}
+
+.Authors .AllAuthors .OneAuthorData .AuthorInformations .AuthorHeadingDiv{
+    /* margin-bottom: 0.4vw;  */
+    margin-bottom: 8px; 
+}
+
+.Authors .AllAuthors .OneAuthorData .AuthorInformations .AuthorHeadingDiv a{
+    font-size: 28px;
+    line-height: 28px;
+    /* line-height: 1.5vw; */
+    /* font-size: 1.5vw; */
+    font-family: 'nunitoBold';
+    text-decoration: none;
+    color: #000000;
+}
+
+.Authors .AllAuthors .OneAuthorData .AuthorInformations .AuthorHeadingDiv a:hover{
+    color: var(--red);
+}
+
+.Authors .AllAuthors .OneAuthorData .AuthorInformations .AuthorEmailDiv{
+    /* margin-bottom: 0.3vw;  */
+    margin-bottom: 6px;
+}
+
+.Authors .AllAuthors .OneAuthorData .AuthorInformations .AuthorEmailDiv a{
+    /* font-size: 0.8vw; */
+    font-size: 15px;
+    line-height: 15px;
+    /* line-height: 0.8vw; */
+    font-family: 'nunitoRegular';
+    color: #aba3a3;  
+    /* margin-bottom: 0.1vw;  */
+    margin-bottom: 2px; 
+    text-decoration: none;
+}
+
+.Authors .AllAuthors .OneAuthorData .AuthorInformations .AuthorEmailDiv a:hover{
+    color: var(--red);
+}
+
+.Authors .AllAuthors .OneAuthorData .AuthorInformations .AuthorGradeDiv{
+    /* margin-bottom: 0.3vw;  */
+    margin-bottom: 6px;
+}
+
+.Authors .AllAuthors .OneAuthorData .AuthorInformations .AuthorGradeDiv p{
+    /* font-size: 0.8vw; */
+    font-size: 15px;
+    line-height: 15px;
+    /* line-height: 0.8vw; */
+    font-family: 'nunitoRegular';
+    color: #aba3a3;  
+    margin: 0;
+    display: inline;
+}
+
+.Authors .AllAuthors .OneAuthorData .AuthorInformations .AuthorPhoneAndAddressDiv{
+    /* max-height: 3vw; */
+    max-height: 57px;
+    overflow: hidden;
+}
+
+.Authors .AllAuthors .OneAuthorData .AuthorInformations .AuthorPhoneAndAddressDiv .PhoneDiv{
+    /* margin-bottom: 0.4vw; */
+    margin-bottom: 8px;
+}
+
+.Authors .AllAuthors .OneAuthorData .AuthorInformations .AuthorPhoneAndAddressDiv p{
+    /* font-size: 1vw; */
+    /* line-height: 1vw; */
+    line-height: 19px;
+    font-size: 19px;
+    font-family: 'nunitoBold';
+    color: #5d5454;
+    display: inline;
+}
+
+.Authors .AllAuthors .OneAuthorData .AuthorInformations .AuthorPhoneAndAddressDiv a{
+        /* font-size: 1vw; */
+    /* line-height: 1vw; */
+    line-height: 19px;
+    font-size: 19px;
+    font-family: 'nunitoBold';
+    color: #5d5454;
+    text-decoration: none;
+}
+
+.Authors .AllAuthors .OneAuthorData .AuthorInformations .AuthorPhoneAndAddressDiv a:hover{
+    color: var(--red);
+}
+
+.Authors .AllAuthors .OneAuthorData .AuthorButtons{
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+    width: 15%;
+}
+
+.Authors .AllArticles{
+    width: 100%;
+}
+
+.Authors .AllArticles .OneArticle{
+    box-sizing: border-box;
+    width: 70%;
+    margin-left: 15%;
+    padding-bottom: 2%;
+    margin-bottom: 2%;
+    /* border-bottom: 0.1vw solid var(--inputBorder); */
+    border-bottom: 2px solid var(--inputBorder);
+}
+
+.Authors .AllArticles .OneArticle .ArticleImageDiv{
+    box-sizing: border-box;
+    display: inline-block;
+    /* border: 0.1vw solid var(--inputBorder); */
+    border: 2px solid var(--inputBorder);
+    width: 10%;
+    /* margin-right: 5%; */
+    margin-left: 15%;
+    aspect-ratio: 1/1;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.Authors .AllArticles .OneArticle .ArticleImageDiv img{
+    width: 100%;
+    aspect-ratio: 1/1;
+    height: auto;
+}
+
+.Authors .AllArticles .OneArticle .ArticleInformations{
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+    width: 55%;
+    margin-left: 10%;
+}
+
+.Authors .AllArticles .OneArticle .ArticleInformations .ArticleHeadingDiv{
+    /* margin-bottom: 0.6vw;  */
+    margin-bottom: 12px; 
+}
+
+.Authors .AllArticles .OneArticle .ArticleInformations .ArticleHeadingDiv a{
+    font-size: 28px;
+    line-height: 28px;
+    /* line-height: 1.5vw; */
+    /* font-size: 1.5vw; */
+    font-family: 'nunitoBold';
+    text-decoration: none;
+    color: #000000;
+}
+
+.Authors .AllArticles .OneArticle .ArticleInformations .ArticleDateDiv{
+    /* margin-bottom: 0.6vw;  */
+    margin-bottom: 12px; 
+}
+
+.Authors .AllArticles .OneArticle .ArticleInformations .ArticleDateDiv p{
+    /* font-size: 0.8vw; */
+    font-size: 15px;
+    line-height: 15px;
+    /* line-height: 0.8vw; */
+    font-family: 'nunitoRegular';
+    color: #aba3a3;  
+    /* margin-bottom: 0.1vw;  */
+    margin-bottom: 2px; 
+}
+
+.Authors .AllArticles .OneArticle .ArticleInformations .ArticleAbstractDiv{
+    /* max-height: 3vw; */
+    max-height: 57px;
+    overflow: hidden;
+}
+
+.Authors .AllArticles .OneArticle .ArticleInformations .ArticleAbstractDiv p{
+    /* font-size: 1vw; */
+    /* line-height: 1vw; */
+    line-height: 19px;
+    font-size: 19px;
+    font-family: 'nunitoBold';
+    color: #5d5454;
+}
