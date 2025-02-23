@@ -18,7 +18,7 @@
                             <li><a href="RecentNewsAdmins.php">Najnovije&nbsp;vesti</a></li>
                             <li><a href="Authors.php">Autori</a></li>
                             <li><a href="Readers.php">Čitaoci</a></li>
-                            <li><a href="">Izloguj&nbsp;se</a></li>
+                            <li><a href="Logout.php">Izloguj&nbsp;se</a></li>
                         </ul>
                     </div>
                 </div>

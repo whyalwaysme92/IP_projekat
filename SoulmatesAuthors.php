@@ -18,17 +18,17 @@
                             <li>
                                 <a href="">Vesti</a>
                                 <ul>
-                                    <li><a href="RecentNews.html">Najnovije</a></li>
-                                    <li><a href="PopularNews.html">Najpopularnije</a></li>
-                                    <li><a href="NewsFromLikedAuthors.html">Omiljeni&nbsp;autori</a></li>
-                                    <li><a href="NewsSoulmates.html">Srodne&nbsp;duše</a></li>
+                                    <li><a href="RecentNews.php">Najnovije</a></li>
+                                    <li><a href="PopularNews.php">Najpopularnije</a></li>
+                                    <li><a href="NewsFromLikedAuthors.php">Omiljeni&nbsp;autori</a></li>
+                                    <li><a href="NewsSoulmates.php">Srodne&nbsp;duše</a></li>
                                 </ul>
                             </li>
-                            <li><a href="LikedAuthors.html">Omiljeni&nbsp;autori</a></li>
-                            <li><a href="SoulmatesAuthors.html">Srodne&nbsp;duše</a></li>
-                            <li><a href="AddArticle.html">Unesi&nbsp;vest</a></li>
-                            <li><a href="MyNews.html">Moje&nbsp;vesti</a></li>
-                            <li><a href="">Izloguj&nbsp;se</a></li>
+                            <li><a href="LikedAuthors.php">Omiljeni&nbsp;autori</a></li>
+                            <li><a href="SoulmatesAuthors.php">Srodne&nbsp;duše</a></li>
+                            <li><a href="AddArticle.php">Unesi&nbsp;vest</a></li>
+                            <li><a href="MyNews.php">Moje&nbsp;vesti</a></li>
+                            <li><a href="Logout.php">Izloguj&nbsp;se</a></li>
                         </ul>
                     </div>
                 </div>
