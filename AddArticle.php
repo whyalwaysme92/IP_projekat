@@ -37,26 +37,26 @@
                     <div class="HeadingDiv">
                         <h1>Unesi vest</h1>
                     </div>
-                    <form action="" enctype="multipart/form-data">
+                    <form action="InsertNews.php" method="POST" enctype="multipart/form-data">
                         <div class="LeftPartForm">
                             <div class="ArticleHeadingDiv">
-                                <input type="text" placeholder="Naslov vesti" required="required"/>
+                                <input type="text" name="Naslov" placeholder="Naslov vesti" required="required"/>
                             </div>
                             <div class="ArticleDateDiv">
-                                <input type="text" placeholder="Datum vesti" required="required"/>
+                                <input type="date" name="Datum" placeholder="Datum vesti" required="required"/>
                             </div>
                             <div class="ArticleAbstractDiv">
-                                <textarea name="" id="" placeholder="Apstrakt vesti"></textarea>
+                                <textarea name="Apstrakt" id="" placeholder="Apstrakt vesti"></textarea>
                             </div>
                         </div><div class="FirstArticleImage">
-                            <input type="file"/>
+                            <input type="file" name="PrvaSlikaVesti"/>
                         </div>
                         <div class="ArticleMainText">
-                            <textarea name="" id="" placeholder="Tekst vesti" required="required"></textarea>
+                            <textarea name="Tekst" id="" placeholder="Tekst vesti" required="required"></textarea>
                         </div>
                         <div class="SecondArticleImage">
-                            <input type="file"/>
-                        </div><button>Unesi vest</button>
+                            <input type="file" name="DrugaSlikaVesti"/>
+                        </div><button type="submit">Unesi vest</button>
                     </form>
                 </div>
             </div>

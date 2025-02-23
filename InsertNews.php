@@ -1,16 +1,19 @@
 <?php
-session_start();
-require_once "db_connection.php"; 
+$connection = new mysqli("localhost", "root", "", "bazag01");
+
+if ($connection->connect_error) {
+    die("Neuspela konekcija: " . $connection->connect_error);
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $naslov = $_POST['naslov'] ?? '';
-    $datum = $_POST['datum'] ?? '';
-    $apstrakt = $_POST['apstrakt'] ?? '';
-    $tekst = $_POST['tekst'] ?? '';
+    $naslov = $_POST['Naslov'] ?? '';
+    $datum = $_POST['Datum'] ?? '';
+    $apstrakt = $_POST['Apstrakt'] ?? '';
+    $tekst = $_POST['Tekst'] ?? '';
     $ocena = 0; 
     
-    $prvaSlika = $_FILES['prva_slika']['name'] ?? '';
-    $drugaSlika = $_FILES['druga_slika']['name'] ?? '';
+    $prvaSlika = $_FILES['PrvaSlikaVesti']['name'] ?? '';
+    $drugaSlika = $_FILES['DrugaSlikaVesti']['name'] ?? '';
     
     $targetDir = "uploads/";
     if (!is_dir($targetDir)) {
@@ -20,22 +23,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $prvaSlikaPath = $targetDir . basename($prvaSlika);
     $drugaSlikaPath = $targetDir . basename($drugaSlika);
     
-    move_uploaded_file($_FILES['prva_slika']['tmp_name'], $prvaSlikaPath);
-    move_uploaded_file($_FILES['druga_slika']['tmp_name'], $drugaSlikaPath);
+    move_uploaded_file($_FILES['PrvaSlikaVesti']['tmp_name'], $prvaSlikaPath);
+    move_uploaded_file($_FILES['DrugaSlikaVesti']['tmp_name'], $drugaSlikaPath);
     
     $query = "INSERT INTO vesti (Naslov, Datum, Apstrakt, Tekst, PrvaSlikaVesti, DrugaSlikaVesti, Ocena)
               VALUES (?, ?, ?, ?, ?, ?, ?)";
     
-    if ($stmt = $conn->prepare($query)) {
+    if ($stmt = $connection->prepare($query)) {
         $stmt->bind_param("ssssssi", $naslov, $datum, $apstrakt, $tekst, $prvaSlikaPath, $drugaSlikaPath, $ocena);
         if ($stmt->execute()) {
-            echo "Uspešno dodata vest!";
+            header("Location: MyNews.php");
         } else {
             echo "Greška pri unosu vesti: " . $stmt->error;
         }
         $stmt->close();
     }
-    $conn->close();
 } else {
     echo "Neispravan zahtev.";
 }
