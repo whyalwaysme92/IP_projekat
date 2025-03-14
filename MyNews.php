@@ -28,7 +28,7 @@
                             <li><a href="SoulmatesAuthors.php">Srodne&nbsp;duše</a></li>
                             <li><a href="AddArticle.php">Unesi&nbsp;vest</a></li>
                             <li><a href="MyNews.php">Moje&nbsp;vesti</a></li>
-                            <li><a href="">Izloguj&nbsp;se</a></li>
+                            <li><a href="Logout.php">Izloguj&nbsp;se</a></li>
                         </ul>
                     </div>
                 </div>
