@@ -15,6 +15,6 @@ uraditi:
 -FetchNews srediti uslove 
 
 -NewsFromLikedAuthors + isto to za REaders
--RecentNews + admins+ readers
+
 -Soulmates
 -hiperlinkovi za autore i vesti
