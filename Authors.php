@@ -45,12 +45,11 @@ $result = $connection->query($query);
                                 <img src="<?php echo htmlspecialchars($row['Slika']); ?>" alt="">
                             </div>
                             <div class="AuthorInformations">
-                                <div class="AuthorHeadingDiv">
-                                    <a href="#"> <?php echo htmlspecialchars($row['Ime']); ?> </a>
-                                </div>
-                                <div class="AuthorHeadingDiv">
-                                    <a href="#"> <?php echo htmlspecialchars($row['Prezime']); ?> </a>
-                                </div>
+                            <div class="AuthorHeadingDiv">
+                                <a href="Author.php?IDkorisnika=<?= urlencode($row['IDkorisnika']) ?>">
+                                    <?php echo htmlspecialchars($row['Ime']) . ' ' . htmlspecialchars($row['Prezime']); ?>
+                                </a>
+                            </div>
                                 <div class="AuthorEmailDiv">
                                     <a href="mailto:<?php echo htmlspecialchars($row['Email']); ?>">
                                         <?php echo htmlspecialchars($row['Email']); ?>

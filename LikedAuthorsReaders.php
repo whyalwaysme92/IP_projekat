@@ -26,7 +26,7 @@
                             </li>
                             <li><a href="LikedAuthorsReaders.php">Omiljeni&nbsp;autori</a></li>
                             <li><a href="Soulmates.php">Srodne&nbsp;duše</a></li>
-                            <li><a href="">Izloguj&nbsp;se</a></li>
+                            <li><a href="Logout.php">Izloguj&nbsp;se</a></li>
                         </ul>
                     </div>
                 </div>

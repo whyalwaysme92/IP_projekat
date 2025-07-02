@@ -14,19 +14,19 @@
                     </div>
                     <div class="HeaderNavigation">
                         <ul>
-                            <li><a href="ReadersMainPage.html">Naslovna</a></li>
+                            <li><a href="ReadersMainPage.php">Naslovna</a></li>
                             <li>
                                 <a href="">Vesti</a>
                                 <ul>
-                                    <li><a href="RecentNewsReaders.html">Najnovije</a></li>
-                                    <li><a href="PopularNewsReaders.html">Najpopularnije</a></li>
-                                    <li><a href="NewsFromLikedAuthorsReaders.html">Omiljeni&nbsp;autori</a></li>
-                                    <li><a href="NewsSoulmatesReaders.html">Srodne&nbsp;duše</a></li>
+                                    <li><a href="RecentNewsReaders.php">Najnovije</a></li>
+                                    <li><a href="PopularNewsReaders.php">Najpopularnije</a></li>
+                                    <li><a href="NewsFromLikedAuthorsReaders.php">Omiljeni&nbsp;autori</a></li>
+                                    <li><a href="NewsSoulmatesReaders.php">Srodne&nbsp;duše</a></li>
                                 </ul>
                             </li>
-                            <li><a href="LikedAuthorsReaders.html">Omiljeni&nbsp;autori</a></li>
-                            <li><a href="Soulmates.html">Srodne&nbsp;duše</a></li>
-                            <li><a href="">Izloguj&nbsp;se</a></li>
+                            <li><a href="LikedAuthorsReaders.php">Omiljeni&nbsp;autori</a></li>
+                            <li><a href="Soulmates.php">Srodne&nbsp;duše</a></li>
+                            <li><a href="Logout.php">Izloguj&nbsp;se</a></li>
                         </ul>
                     </div>
                 </div>

@@ -10,9 +10,16 @@
         $resultRow = $queryResult->fetch_array(MYSQLI_ASSOC);
         if($resultRow['Sifra'] == $password){
             session_start();
+            $_SESSION['IDkorisnika'] = $resultRow['IDkorisnika'];
             $_SESSION['tip']=$resultRow['tip'];
             echo($_SESSION['tip']);
-            header("Location: MainPage.php");
+            if ($resultRow['tip'] == 2) {
+                header("Location: AuthorsMainPage.php");
+                exit();
+            } else {
+                header("Location: MainPage.php");
+                exit();
+            }
 
         }
         else{

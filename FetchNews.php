@@ -19,7 +19,11 @@ if ($sort === 'popularity') {
     $sql = "SELECT IDVesti, Naslov, Apstrakt, Datum, Ocena, PrvaSlikaVesti, DrugaSlikaVesti, Tekst 
             FROM vesti 
             ORDER BY Ocena DESC"; 
-} else {
+} else if ($sort === 'favorite') {
+    $sql = "SELECT IDVesti, Naslov, Apstrakt, Datum, Ocena, PrvaSlikaVesti, DrugaSlikaVesti, Tekst 
+            FROM vesti 
+            ORDER BY Ocena DESC"; 
+} else if ($sort === 'date') {
     $sql = "SELECT IDVesti, Naslov, Apstrakt, Datum, Ocena, PrvaSlikaVesti, DrugaSlikaVesti, Tekst 
             FROM vesti 
             ORDER BY Datum DESC"; 

@@ -7,3 +7,14 @@ autor = 2
 citaoc = 3
 
 ime prezime telefon email sifra adresa tip slika datumregistracije
+
+
+uraditi:
+
+-LikedAuthors i LikedAuthorsReaders da vuce iz baze
+-FetchNews srediti uslove 
+
+-NewsFromLikedAuthors + isto to za REaders
+-RecentNews + admins+ readers
+-Soulmates
+-hiperlinkovi za autore i vesti
