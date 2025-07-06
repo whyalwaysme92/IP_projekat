@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['IDkorisnika']) || $_SESSION['tip'] != 2) {
-    header("Location: Login.php");
+    header("Location: LoginPage.php");
     exit();
 }
 
@@ -44,22 +44,24 @@ $result = $stmt->get_result();
                     <p>new<span>S</span></p>
                 </div>
                 <div class="HeaderNavigation">
-                    <ul>
-                        <li><a href="ReadersMainPage.php">Naslovna</a></li>
-                        <li>
-                            <a href="">Vesti</a>
-                            <ul>
-                                <li><a href="RecentNewsReaders.php">Najnovije</a></li>
-                                <li><a href="PopularNewsReaders.php">Najpopularnije</a></li>
-                                <li><a href="NewsFromLikedAuthorsReaders.php">Omiljeni&nbsp;autori</a></li>
-                                <li><a href="NewsSoulmatesReaders.php">Srodne&nbsp;duše</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="LikedAuthorsReaders.php">Omiljeni&nbsp;autori</a></li>
-                        <li><a href="Soulmates.php">Srodne&nbsp;duše</a></li>
-                        <li><a href="Logout.php">Izloguj&nbsp;se</a></li>
-                    </ul>
-                </div>
+                        <ul>
+                            <li><a href="AuthorsMainPage.php">Naslovna</a></li>
+                            <li>
+                                <a href="">Vesti</a>
+                                <ul>
+                                    <li><a href="RecentNews.php">Najnovije</a></li>
+                                    <li><a href="PopularNews.php">Najpopularnije</a></li>
+                                    <li><a href="NewsFromLikedAuthors.php">Omiljeni&nbsp;autori</a></li>
+                                    <li><a href="NewsSoulmates.php">Srodne&nbsp;duše</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="LikedAuthors.php">Omiljeni&nbsp;autori</a></li>
+                            <li><a href="SoulmatesAuthors.php">Srodne&nbsp;duše</a></li>
+                            <li><a href="AddArticle.php">Unesi&nbsp;vest</a></li>
+                            <li><a href="MyNews.php">Moje&nbsp;vesti</a></li>
+                            <li><a href="Logout.php">Izloguj&nbsp;se</a></li>
+                        </ul>
+                    </div>
             </div>
 
             <div class="Authors">

@@ -14,7 +14,4 @@ idkor 4 5 6 8 9 10
 
 uraditi:
 
--FetchNews srediti uslove 
-
--Soulmates i NewsSoulmates
 -hiperlinkovi za autore i vesti

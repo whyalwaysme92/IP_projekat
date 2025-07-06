@@ -68,7 +68,7 @@ if (!isset($_SESSION['IDkorisnika'])) {
                         <h1>Najnovije od omiljenog autora</h1>
                         <div class="Articles">
                         <?php
-                            $sort = 'popularity';
+                            $sort = 'favorite';
                             include 'FetchNews.php'; 
                             ?>
                         </div>
