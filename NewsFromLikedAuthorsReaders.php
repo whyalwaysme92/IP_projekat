@@ -1,3 +1,27 @@
+<?php
+session_start();
+
+$connection = new mysqli("localhost", "root", "", "bazag01");
+if ($connection->connect_error) {
+    die("Greška prilikom povezivanja sa bazom: " . $connection->connect_error);
+}
+
+$korisnikId = $_SESSION['IDkorisnika'];
+
+// SQL upit: uzimamo po jednu vest od svakog autora koje je ocenio korisnik, sa prosečnom ocenom
+$sql = "SELECT v.IDVesti, v.Naslov, v.Datum, v.Apstrakt, v.PrvaSlikaVesti, k.Ime, k.Prezime, AVG(o.Ocena) AS ProsecnaOcena
+        FROM ocene o
+        JOIN vesti v ON o.IDVesti = v.IDVesti
+        JOIN korisnici k ON v.IDKorisnika = k.IDKorisnika
+        WHERE o.IDKorisnika = ?
+        GROUP BY v.IDKorisnika
+        ORDER BY ProsecnaOcena DESC";
+
+$stmt = $connection->prepare($sql);
+$stmt->bind_param("i", $korisnikId);
+$stmt->execute();
+$result = $stmt->get_result();
+?>
 <!DOCTYPE html> 
 <html>
     <head>
@@ -16,7 +40,7 @@
                         <ul>
                             <li><a href="ReadersMainPage.php">Naslovna</a></li>
                             <li>
-                                <a href="">Vesti</a>
+                                <a href="#">Vesti</a>
                                 <ul>
                                     <li><a href="RecentNewsReaders.php">Najnovije</a></li>
                                     <li><a href="PopularNewsReaders.php">Najpopularnije</a></li>
@@ -36,70 +60,34 @@
                         <h1>Vesti omiljenih autora</h1>
                     </div>
                     <div class="AllArticles">
-                        <div class="OneArticle">
-                            <div class="ArticleInformations">
-                                <div class="ArticleHeadingDiv">
-                                    <a href="">Zec Fića izgubio šargarepu u Tašmajdanskom parku</a>
+                        <?php while ($row = $result->fetch_assoc()): ?>
+                            <div class="OneArticle">
+                                <div class="ArticleInformations">
+                                    <div class="ArticleHeadingDiv">
+                                        <a href="#"><?= htmlspecialchars($row['Naslov']) ?></a>
+                                    </div>
+                                    <div class="ArticleDateDiv">
+                                        <p>Autor: </p><p><?= htmlspecialchars($row['Ime'] . ' ' . $row['Prezime']) ?></p><p> | </p>
+                                        <p>Prosečna ocena autora: </p><p><?= number_format($row['ProsecnaOcena'], 1) ?></p><p> | </p>
+                                    </div>
+                                    <div class="ArticleDateDiv">
+                                        <p><?= (new DateTime($row['Datum']))->format('d-m-Y') ?></p>
+                                    </div>
+                                    <div class="ArticleAbstractDiv">
+                                        <p><?= htmlspecialchars($row['Apstrakt']) ?></p>
+                                    </div>
                                 </div>
-                                <div class="ArticleDateDiv">
-                                    <p>Autor: </p><p>Marko Aurelije</p><p> | </p><p>Prosečna ocena autora: </p><p>4.8</p><p> | </p>
+                                <div class="ArticleImageDiv">
+                                    <img src="<?= htmlspecialchars($row['PrvaSlikaVesti']) ?>" alt="">
                                 </div>
-                                <div class="ArticleDateDiv">
-                                    <p>11-11-2024</p>
-                                </div>
-                                <div class="ArticleAbstractDiv">
-                                    <p>Nakon obilnih padavina u našem glavnom gradu, zec Fića nije 
-                                        uspeo da pronađe svoju šargarepu koju je ostavio na obližnjoj klupi...
-                                    </p>
-                                </div>
-                            </div><div class="ArticleImageDiv">
-                                <img src="images/zeka.jpg" alt="">
                             </div>
-                        </div>
-                        <div class="OneArticle">
-                            <div class="ArticleInformations">
-                                <div class="ArticleHeadingDiv">
-                                    <a href="">Sferopulos pred Monako: Ne možemo se fokusirati na jednog igrača</a>
-                                </div>
-                                <div class="ArticleDateDiv">
-                                    <p>Autor: </p><p>Aleksandar Stojanović</p><p> | </p><p>Prosečna ocena autora: </p><p>4.6</p><p> | </p>
-                                </div>
-                                <div class="ArticleDateDiv">
-                                    <p>11-11-2024</p>
-                                </div>
-                                <div class="ArticleAbstractDiv">
-                                    <p>Trener košarkaša Crvene zvezde Janis Sveropulos kaže da je Monako
-                                        veoma dobar tim, koji je napravljen da ode na fajnal-for Evrolige.
-                                    </p>
-                                </div>
-                            </div><div class="ArticleImageDiv">
-                                <img src="images/sferopulos.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="OneArticle">
-                            <div class="ArticleInformations">
-                                <div class="ArticleHeadingDiv">
-                                    <a href="">Uticaj Trampove pobede na tržište nafte - da li će doći do stabilizacije cena</a>
-                                </div>
-                                <div class="ArticleDateDiv">
-                                    <p>Autor: </p><p>Radoš Bajić</p><p> | </p><p>Prosečna ocena autora: </p><p>4.7</p><p> | </p>
-                                </div>
-                                <div class="ArticleDateDiv">
-                                    <p>9-11-2024</p>
-                                </div>
-                                <div class="ArticleAbstractDiv">
-                                    <p>Donald Tramp, kao ponovo izabrani predsednik SAD, nastaviće sa svojom politkom
-                                        koja favorizuje fosilna goriva, što može dovesti do stabilizacije cena nafte i gasa, ali i povećane potražnje...
-                                    </p>
-                                </div>
-                            </div><div class="ArticleImageDiv">
-                                <img src="images/trump.jpg" alt="">
-                            </div>
-                        </div>
+                        <?php endwhile; ?>
                     </div>
                 </div>
             </div>
         </div>
-
     </body>
 </html>
+<?php
+$connection->close();
+?>

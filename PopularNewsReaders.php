@@ -1,3 +1,17 @@
+<?php
+$connection = new mysqli("localhost", "root", "", "bazag01");
+if ($connection->connect_error) {
+    die("Greška prilikom povezivanja sa bazom: " . $connection->connect_error);
+}
+
+$sql = "SELECT v.IDVesti, v.Naslov, v.Datum, v.Apstrakt, v.PrvaSlikaVesti, AVG(o.Ocena) AS ProsecnaOcena
+        FROM vesti v
+        JOIN ocene o ON v.IDVesti = o.IDVesti
+        GROUP BY v.IDVesti
+        ORDER BY ProsecnaOcena DESC";
+
+$result = $connection->query($sql);
+?>
 <!DOCTYPE html> 
 <html>
     <head>
@@ -16,7 +30,7 @@
                         <ul>
                             <li><a href="ReadersMainPage.php">Naslovna</a></li>
                             <li>
-                                <a href="">Vesti</a>
+                                <a href="#">Vesti</a>
                                 <ul>
                                     <li><a href="RecentNewsReaders.php">Najnovije</a></li>
                                     <li><a href="PopularNewsReaders.php">Najpopularnije</a></li>
@@ -36,70 +50,31 @@
                         <h1>Najpopularnije vesti</h1>
                     </div>
                     <div class="AllArticles">
-                        <div class="OneArticle">
-                            <div class="ArticleInformations">
-                                <div class="ArticleHeadingDiv">
-                                    <a href="">Uticaj Trampove pobede na tržište nafte - da li će doći do stabilizacije cena</a>
+                        <?php while ($row = $result->fetch_assoc()): ?>
+                            <div class="OneArticle">
+                                <div class="ArticleInformations">
+                                    <div class="ArticleHeadingDiv">
+                                        <a href="#"><?= htmlspecialchars($row['Naslov']) ?></a>
+                                    </div>
+                                    <div class="ArticleDateDiv">
+                                        <p>Ocena: </p><p><?= number_format($row['ProsecnaOcena'], 1) ?></p><p> | </p>
+                                    </div>
+                                    <div class="ArticleDateDiv">
+                                        <p><?= (new DateTime($row['Datum']))->format('d-m-Y') ?></p>
+                                    </div>
+                                    <div class="ArticleAbstractDiv">
+                                        <p><?= htmlspecialchars($row['Apstrakt']) ?></p>
+                                    </div>
                                 </div>
-                                <div class="ArticleDateDiv">
-                                    <p>Ocena: </p><p>4.9</p><p> | </p>
+                                <div class="ArticleImageDiv">
+                                    <img src="<?= htmlspecialchars($row['PrvaSlikaVesti']) ?>" alt="">
                                 </div>
-                                <div class="ArticleDateDiv">
-                                    <p>9-11-2024</p>
-                                </div>
-                                <div class="ArticleAbstractDiv">
-                                    <p>Donald Tramp, kao ponovo izabrani predsednik SAD, nastaviće sa svojom politkom
-                                        koja favorizuje fosilna goriva, što može dovesti do stabilizacije cena nafte i gasa, ali i povećane potražnje...
-                                    </p>
-                                </div>
-                            </div><div class="ArticleImageDiv">
-                                <img src="images/trump.jpg" alt="">
                             </div>
-                        </div>
-                        <div class="OneArticle">
-                            <div class="ArticleInformations">
-                                <div class="ArticleHeadingDiv">
-                                    <a href="">Sferopulos pred Monako: Ne možemo se fokusirati na jednog igrača</a>
-                                </div>
-                                <div class="ArticleDateDiv">
-                                    <p>Ocena: </p><p>4.6</p><p> | </p>
-                                </div>
-                                <div class="ArticleDateDiv">
-                                    <p>10-11-2024</p>
-                                </div>
-                                <div class="ArticleAbstractDiv">
-                                    <p>Trener košarkaša Crvene zvezde Janis Sveropulos kaže da je Monako
-                                        veoma dobar tim, koji je napravljen da ode na fajnal-for Evrolige.
-                                    </p>
-                                </div>
-                            </div><div class="ArticleImageDiv">
-                                <img src="images/sferopulos.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="OneArticle">
-                            <div class="ArticleInformations">
-                                <div class="ArticleHeadingDiv">
-                                    <a href="">Da li kurkuma i ljuta papričica doprinose našem zdravlju?</a>
-                                </div>
-                                <div class="ArticleDateDiv">
-                                    <p>Ocena: </p><p>4.8</p><p> | </p>
-                                </div>
-                                <div class="ArticleDateDiv">
-                                    <p>9-11-2024</p>
-                                </div>
-                                <div class="ArticleAbstractDiv">
-                                    <p>Često se tvrdi da čili, kurkuma i drugi začini imaju zdravstvene prednosti
-                                        ili čak sposobnost da „pojačaju naš imuni sistem“.
-                                    </p>
-                                </div>
-                            </div><div class="ArticleImageDiv">
-                                <img src="images/kurkumica.jpg" alt="">
-                            </div>
-                        </div>
+                        <?php endwhile; ?>
                     </div>
                 </div>
             </div>
         </div>
-
     </body>
 </html>
+<?php $connection->close(); ?>

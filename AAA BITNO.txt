@@ -8,13 +8,13 @@ citaoc = 3
 
 ime prezime telefon email sifra adresa tip slika datumregistracije
 
+idvesti 3 4 5 6 7 8 9 10
+idkor 4 5 6 8 9 10
+
 
 uraditi:
 
--LikedAuthors i LikedAuthorsReaders da vuce iz baze
 -FetchNews srediti uslove 
-
--NewsFromLikedAuthors + isto to za REaders
 
 -Soulmates i NewsSoulmates
 -hiperlinkovi za autore i vesti
