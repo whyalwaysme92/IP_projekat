@@ -5,7 +5,14 @@ if ($connection->connect_error) {
     die("Neuspela konekcija: " . $connection->connect_error);
 }
 
-$query = "SELECT IDkorisnika, Ime, Prezime, Telefon, Email, Adresa, Slika FROM korisnici WHERE Tip = '2'";
+// Determine sorting method
+$sort = isset($_GET['sort']) ? $_GET['sort'] : 'alphabetical';
+$orderBy = $sort === 'registration' ? 'DatumRegistracije DESC' : 'Ime ASC';
+
+$query = "SELECT IDkorisnika, Ime, Prezime, Telefon, Email, Adresa, Slika, DatumRegistracije 
+          FROM korisnici 
+          WHERE Tip = '2' 
+          ORDER BY $orderBy";
 $result = $connection->query($query);
 ?>
 
@@ -37,41 +44,50 @@ $result = $connection->query($query);
             <div class="Authors">
                 <div class="HeadingDiv">
                     <h1>Autori</h1>
+                    <div class="SortOptions" style="margin-top: 10px;">
+                        <form method="GET" action="Authors.php">
+                            <label for="sort">Sortiraj po:</label>
+                            <select name="sort" id="sort" onchange="this.form.submit()">
+                                <option value="alphabetical" <?= $sort === 'alphabetical' ? 'selected' : '' ?>>Abecedno</option>
+                                <option value="registration" <?= $sort === 'registration' ? 'selected' : '' ?>>Datum registracije</option>
+                            </select>
+                        </form>
+                    </div>
                 </div>
                 <div class="AllAuthors">
                     <?php while ($row = $result->fetch_assoc()): ?>
                         <div class="OneAuthor">
                             <div class="AuthorImageDiv">
-                                <img src="<?php echo htmlspecialchars($row['Slika']); ?>" alt="">
+                                <img src="<?= !empty($row['Slika']) ? htmlspecialchars($row['Slika']) : 'images/default-profile.png'; ?>" alt="">
                             </div>
                             <div class="AuthorInformations">
-                            <div class="AuthorHeadingDiv">
-                                <a href="Author.php?IDkorisnika=<?= urlencode($row['IDkorisnika']) ?>">
-                                    <?php echo htmlspecialchars($row['Ime']) . ' ' . htmlspecialchars($row['Prezime']); ?>
-                                </a>
-                            </div>
+                                <div class="AuthorHeadingDiv">
+                                    <a href="Author.php?IDkorisnika=<?= urlencode($row['IDkorisnika']) ?>">
+                                        <?= htmlspecialchars($row['Ime']) . ' ' . htmlspecialchars($row['Prezime']); ?>
+                                    </a>
+                                </div>
                                 <div class="AuthorEmailDiv">
-                                    <a href="mailto:<?php echo htmlspecialchars($row['Email']); ?>">
-                                        <?php echo htmlspecialchars($row['Email']); ?>
+                                    <a href="mailto:<?= htmlspecialchars($row['Email']); ?>">
+                                        <?= htmlspecialchars($row['Email']); ?>
                                     </a>
                                 </div>
                                 <div class="AuthorPhoneAndAddressDiv">
                                     <div class="PhoneDiv">
                                         <p>Telefon: </p>
-                                        <a href="tel:<?php echo htmlspecialchars($row['Telefon']); ?>">
-                                            <?php echo htmlspecialchars($row['Telefon']); ?>
+                                        <a href="tel:<?= htmlspecialchars($row['Telefon']); ?>">
+                                            <?= htmlspecialchars($row['Telefon']); ?>
                                         </a>
                                     </div>
                                     <div class="AddressDiv">
-                                        <p class="AddressText">Adresa: <?php echo htmlspecialchars($row['Adresa']); ?></p>
+                                        <p class="AddressText">Adresa: <?= htmlspecialchars($row['Adresa']); ?></p>
                                     </div>
                                 </div>
                             </div>
                             <div class="AuthorButtons">
-                                <a href="UpdateAuthor.php?id=<?php echo $row['IDkorisnika']; ?>">
+                                <a href="UpdateAuthor.php?id=<?= $row['IDkorisnika']; ?>">
                                     <button>Ažuriraj</button>
                                 </a>
-                                <a href="DeleteAuthor.php?id=<?php echo $row['IDkorisnika']; ?>" onclick="return confirm('Da li ste sigurni?');">
+                                <a href="DeleteAuthor.php?id=<?= $row['IDkorisnika']; ?>" onclick="return confirm('Da li ste sigurni?');">
                                     <button>Briši</button>
                                 </a>
                             </div>
