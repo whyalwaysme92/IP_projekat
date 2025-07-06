@@ -16,5 +16,5 @@ uraditi:
 
 -NewsFromLikedAuthors + isto to za REaders
 
--Soulmates
+-Soulmates i NewsSoulmates
 -hiperlinkovi za autore i vesti
