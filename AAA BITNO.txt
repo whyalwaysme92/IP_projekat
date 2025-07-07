@@ -1,5 +1,7 @@
 Da bi php radio mislim da je neophodni pokrenuti preko WAMPA localhost-a.
 
+PROBA DA LI RADI GIT - LUKA
+
 Preko phpMyAdmin neophodno je ucitati bazu bazag01 i tabelu korisnici u njoj. 
 
 admin = 1
