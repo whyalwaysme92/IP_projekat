@@ -18,7 +18,7 @@ if (!isset($_SESSION['IDkorisnika'])) {
     <body>
         <div class="PageContentDiv">
             <div class="PageContent">
-                <div class="Header">
+                <!-- <div class="Header">
                     <div class="HeaderLogoImage">
                         <p>new<span>S</span></p>
                     </div>
@@ -41,8 +41,12 @@ if (!isset($_SESSION['IDkorisnika'])) {
                             <li><a href="Logout.php">Izloguj&nbsp;se</a></li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
         
+                <?php 
+                    include 'Navigation.php'; 
+                ?>
+
                 <div class="MainPartOfPage">
                     <div class="NewsChronologically">
                         <h1>Poslednje vesti</h1>

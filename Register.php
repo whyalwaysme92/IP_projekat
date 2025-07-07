@@ -8,7 +8,7 @@
     <body>
         <div class="PageContentDiv">
             <div class="PageContent">
-                <div class="Header">
+                <!-- <div class="Header">
                     <div class="HeaderLogoImage">
                         <p>new<span>S</span></p>
                     </div>
@@ -18,8 +18,12 @@
                             <li><a href="LoginPage.php">Uloguj&nbsp;se</a></li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
         
+                <?php 
+                    include 'Navigation.php'; 
+                ?>
+
                 <div class="RegisterForm">
                     <form action="Registration.php" enctype="multipart/form-data" method="post">
                         <div class="FormHeading">

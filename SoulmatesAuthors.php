@@ -89,7 +89,7 @@ usort($srodneDuse, function ($a, $b) {
 <body>
 <div class="PageContentDiv">
     <div class="PageContent">
-        <div class="Header">
+        <!-- <div class="Header">
             <div class="HeaderLogoImage">
                 <p>new<span>S</span></p>
             </div>
@@ -112,7 +112,11 @@ usort($srodneDuse, function ($a, $b) {
                     <li><a href="Logout.php">Izloguj&nbsp;se</a></li>
                 </ul>
             </div>
-        </div>
+        </div> -->
+
+        <?php 
+            include 'Navigation.php'; 
+        ?>
 
         <div class="Readers">
             <div class="HeadingDiv">

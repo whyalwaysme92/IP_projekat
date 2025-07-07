@@ -1,7 +1,7 @@
 <?php
 
     $htmlStranica =<<<'EOD'
-    '<!DOCTYPE html>
+    <!DOCTYPE html>
 <html>
     <head>
         <title>Login - newS</title>
@@ -11,18 +11,22 @@
     <body>
         <div class="PageContentDiv">
             <div class="PageContent">
-                <div class="Header">
-                    <div class="HeaderLogoImage">
-                        <p>new<span>S</span></p>
-                    </div>
-                    <div class="HeaderNavigation">
-                        <ul>
-                            <li><a href="MainPage.php">Naslovna</a></li>
-                            <li><a href="LoginPage.php">Uloguj&nbsp;se</a></li>
-                        </ul>
-                    </div>
-                </div>
+                // <div class="Header">
+                //     <div class="HeaderLogoImage">
+                //         <p>new<span>S</span></p>
+                //     </div>
+                //     <div class="HeaderNavigation">
+                //         <ul>
+                //             <li><a href="MainPage.php">Naslovna</a></li>
+                //             <li><a href="LoginPage.php">Uloguj&nbsp;se</a></li>
+                //         </ul>
+                //     </div>
+                // </div>
         
+                <?php 
+                    include 'Navigation.php'; 
+                ?>
+
                 <div class="LoginForm">
                     <form action="LoginCheck.php" method="post">
                         <div class="FormHeading">
@@ -37,7 +41,7 @@
             </div>
         </div>
     </body>
-</html>'
+</html>
 EOD;
 
 

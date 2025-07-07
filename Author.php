@@ -37,7 +37,7 @@ $newsResult = $connection->query($newsQuery);
 <body>
 <div class="PageContentDiv">
     <div class="PageContent">
-        <div class="Header">
+        <!-- <div class="Header">
             <div class="HeaderLogoImage">
                 <p>new<span>S</span></p>
             </div>
@@ -51,7 +51,11 @@ $newsResult = $connection->query($newsQuery);
                     <li><a href="Logout.php">Izloguj&nbsp;se</a></li>
                 </ul>
             </div>
-        </div>
+        </div> -->
+
+        <?php 
+            include 'Navigation.php'; 
+        ?>
 
         <div class="Authors">
             <div class="HeadingDiv">

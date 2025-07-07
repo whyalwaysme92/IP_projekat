@@ -3,7 +3,7 @@
     session_start();
 
     $defaultNavigation = <<<EOD
-    '<div class="Header">
+    <div class="Header">
         <div class="HeaderLogoImage">
             <p>new<span>S</span></p>
         </div>
@@ -13,11 +13,11 @@
                 <li><a href="LoginPage.php">Uloguj&nbsp;se</a></li>
             </ul>
         </div>
-    </div>'
+    </div>
     EOD;
 
     $navigationForAdmin = <<<EOD
-    '<div class="Header">
+    <div class="Header">
         <div class="HeaderLogoImage">
             <p>new<span>S</span></p>
         </div>
@@ -30,11 +30,11 @@
                 <li><a href="Logout.php">Izloguj&nbsp;se</a></li>
             </ul>
         </div>
-    </div>'
+    </div>
     EOD;
 
     $navigationForAuthors = <<<EOD
-    '<div class="Header">
+    <div class="Header">
         <div class="HeaderLogoImage">
             <p>new<span>S</span></p>
         </div>
@@ -57,11 +57,11 @@
                 <li><a href="Logout.php">Izloguj&nbsp;se</a></li>
             </ul>
         </div>
-    </div>'
+    </div>
     EOD;
 
     $navigationForReaders = <<<EOD
-    '<div class="Header">
+    <div class="Header">
         <div class="HeaderLogoImage">
             <p>new<span>S</span></p>
         </div>
@@ -82,7 +82,7 @@
                 <li><a href="Logout.php">Izloguj&nbsp;se</a></li>
             </ul>
         </div>
-    </div>'
+    </div>
     EOD;
     if(isset($_SESSION['tip'])){
         switch ($_SESSION['tip']) {

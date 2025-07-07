@@ -104,7 +104,7 @@ $vestiResult = $connection->query($vestiQuery);
 <body>
 <div class="PageContentDiv">
     <div class="PageContent">
-        <div class="Header">
+        <!-- <div class="Header">
             <div class="HeaderLogoImage">
                 <p>new<span>S</span></p>
             </div>
@@ -127,7 +127,11 @@ $vestiResult = $connection->query($vestiQuery);
                     <li><a href="Logout.php">Izloguj&nbsp;se</a></li>
                 </ul>
             </div>
-        </div>
+        </div> -->
+
+        <?php 
+            include 'Navigation.php'; 
+        ?>
 
         <div class="News">
             <div class="HeadingDiv">

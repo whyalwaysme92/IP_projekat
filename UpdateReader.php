@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="PageContentDiv">
         <div class="PageContent">
-            <div class="Header">
+            <!-- <div class="Header">
                 <div class="HeaderLogoImage">
                     <p>new<span>S</span></p>
                 </div>
@@ -64,7 +64,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <li><a href="Logout.php">Izloguj&nbsp;se</a></li>
                     </ul>
                 </div>
-            </div>
+            </div> -->
+
+            <?php 
+                include 'Navigation.php'; 
+            ?>
 
             <div class="RegisterForm">
                 <form action="UpdateReader.php?id=<?php echo $author['IDkorisnika']; ?>" method="POST">
