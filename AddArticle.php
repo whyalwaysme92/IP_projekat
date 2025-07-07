@@ -8,7 +8,7 @@
     <body>
         <div class="PageContentDiv">
             <div class="PageContent">
-                <div class="Header">
+                <!-- <div class="Header">
                     <div class="HeaderLogoImage">
                         <p>new<span>S</span></p>
                     </div>
@@ -31,8 +31,12 @@
                             <li><a href="Logout.php">Izloguj&nbsp;se</a></li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
         
+                <?php 
+                    include 'Navigation.php'; 
+                ?>  
+
                 <div class="AddArticleDiv">
                     <div class="HeadingDiv">
                         <h1>Unesi vest</h1>
