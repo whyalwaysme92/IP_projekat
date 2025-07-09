@@ -1,0 +1,186 @@
+@font-face {
+    font-family: nunitoBoldItalic;
+    src: url(../fonts/static/Nunito-BoldItalic.ttf);
+}
+
+@font-face {
+    font-family: nunitoBold;
+    src: url(../fonts/static/Nunito-Bold.ttf);
+}
+
+@font-face {
+    font-family: nunitoExtraBold;
+    src: url(../fonts/static/Nunito-ExtraBold.ttf);
+}
+
+@font-face {
+    font-family: nunitoRegular;
+    src: url(../fonts/static/Nunito-Regular.ttf);
+}
+
+:root{
+    --background: #f5f0f0;
+    --red: #782c26;
+    --inputBorder: #767676;
+    --inputText: #3c4141;
+    --inputPlaceholder: #797775;
+    --pageContentbackground: #ffffff;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    width: 100%;
+    /* height: 100%; */
+    /* height: 100%; */
+    /* background-color: var(--background); */
+}
+
+
+
+body{
+    width: 100%;
+    /* height: 100%; */
+    background-color: var(--background);
+    background-image: url('../images/Pattern.png');
+    background-repeat: repeat;
+}
+
+.PageContentDiv{
+    width: 1500px;
+    display: block;
+    margin: auto;
+    min-height: 100vh;
+    padding-bottom: 38px;
+    background-color: var(--background);
+}
+
+.PageContent{
+    width: 1500px;
+    background-color: var(--pageContentbackground);
+    /* min-height: 100vh; */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.Header{
+    /* width: 100vw; */
+    /* height: 11vw; */
+    /* height: 170px; */
+    /* height: 182px; */
+    width: 1500px;
+    /* margin-bottom: 1.5vw; */
+    margin-bottom: 29px;
+}
+
+.Header .HeaderLogoImage{
+    padding-top: 0.5vw;
+    /* margin-left: 1vw; */
+    text-align: center;
+    line-height: 88px;
+    vertical-align: middle;
+    background-color: var(--red);
+}
+
+.Header .HeaderLogoImage p{
+    /* font-size: 5vw; */
+    font-size: 60px;
+    margin: 0 !important;
+    font-family: 'nunitoBoldItalic';
+    color: var(--background);
+}
+
+.Header .HeaderLogoImage span{
+    font-size: 88px;
+    line-height: 88px;
+}
+
+
+.Header .HeaderNavigation{
+    /* width: 100%; */
+    width: 1500px;
+    text-align: center;
+    background-color: var(--background);
+    /* height: 4vw; */
+    /* margin-bottom: 4vw; */
+    /* height: 77px; */
+}
+
+.Header .HeaderNavigation > ul{
+    width: 1500px;
+    /* width: 100%; */
+    /* margin-left: 10%; */
+    text-align: center;
+}
+
+.Header .HeaderNavigation ul > li{
+    display: inline-block;
+    width: auto;
+    /* line-height: 1.5vw; */
+    line-height: 29px;
+}
+
+.Header .HeaderNavigation ul li a{
+    font-family: 'nunitoBold';
+    /* font-size: 1.5vw; */
+    /* padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 1%;
+    padding-top: 1%; */
+    font-size: 29px;
+    color: #000000;
+    text-decoration: none;
+    display: inline-block;
+    padding: 20px 20px 20px 20px;
+    box-sizing: border-box;
+}
+
+.Header .HeaderNavigation ul li a:hover{
+    background-color: var(--red);
+    color: var(--background);
+    transition: ease 0.2s;
+}
+
+.Header .HeaderNavigation ul li ul{
+    display: none;
+}
+
+.Header .HeaderNavigation ul li ul{
+    text-align: left;
+}
+
+.Header .HeaderNavigation ul li ul li{
+    display: block;
+    width: auto;
+    /* padding-top: 6px; */
+    /* padding-bottom: 6px; */
+}
+
+.Header .HeaderNavigation ul li:hover ul{
+    margin-left: 1%;
+    background-color: var(--red);
+    position:absolute;
+    display: block;
+    width: 270px;
+    z-index: 5;
+}
+
+.Header .HeaderNavigation ul li ul li a{
+    padding-left: 20px;
+    /* padding-left: 5%; */
+    color: var(--background);
+    /* font-size: 1.5vw; */
+    font-size: 29px;
+    width:100%;
+}
+
+.Header .HeaderNavigation ul li ul li a:hover{
+    background-color: var(--background);
+    color:var(--red);
+    transition: ease 0.2s;
+}
+
