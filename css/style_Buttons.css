@@ -1,0 +1,26 @@
+.Buttons form button {
+    box-sizing: border-box;
+    width: 10%; /* Adjusted width for better visibility */
+    height: 60px; /* Slightly increased height for better usability */
+    text-align: center;
+    font-family: 'nunitoRegular';
+    font-size: 19px;
+    color: var(--background);
+    background-color: var(--red);
+    border: 2px solid var(--red);
+    vertical-align: middle;
+}
+
+.Buttons form button:hover {
+    background-color: var(--background);
+    color: var(--red);
+    border-color: var(--red);
+    transition: ease 0.2s;
+    cursor: pointer;
+}
+
+/* Ensure ButtonCustomStyle overrides other styles */
+.ButtonCustomStyle {
+    font-family: 'nunitoBold' !important;
+    font-size: 15px !important;
+}

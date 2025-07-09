@@ -8,9 +8,21 @@ if ($connection->connect_error) {
     die("Greška prilikom povezivanja sa bazom: " . $connection->connect_error);
 }
 
+// Paginacija - broj vesti po stranici i trenutna stranica
+$vestiPoStranici = isset($_GET['limit']) ? (int)$_GET['limit'] : 5;
+$stranica = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+if ($stranica < 1) $stranica = 1;
+
+$offset = ($stranica - 1) * $vestiPoStranici;
+
+// Ukupan broj vesti
+$ukupnoVesti = $connection->query("SELECT COUNT(*) as total FROM vesti")->fetch_assoc()['total'];
+
+// Dohvatanje vesti za trenutnu stranicu
 $sql = "SELECT IDVesti, Naslov, Apstrakt, Datum, Ocena, PrvaSlikaVesti 
         FROM vesti 
-        ORDER BY Datum DESC";
+        ORDER BY Datum DESC
+        LIMIT $vestiPoStranici OFFSET $offset";
 
 $result = $connection->query($sql);
 ?>
@@ -21,33 +33,36 @@ $result = $connection->query($sql);
     <title>Najnovije vesti - newS</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/style_News.css"> 
+    <link rel="stylesheet" type="text/css" href="css/style_Buttons.css"> 
+    <style>
+        .custom-font {
+            font-family: inherit;
+        }
+    </style>
 </head>
 <body>
     <div class="PageContentDiv">
         <div class="PageContent">
-            <!-- <div class="Header">
-                <div class="HeaderLogoImage">
-                    <p>new<span>S</span></p>
-                </div>
-                <div class="HeaderNavigation">
-                    <ul>
-                        <li><a href="Admins.php">Naslovna</a></li>
-                        <li><a href="RecentNewsAdmins.php">Najnovije&nbsp;vesti</a></li>
-                        <li><a href="Authors.php">Autori</a></li>
-                        <li><a href="Readers.php">Čitaoci</a></li>
-                        <li><a href="Logout.php">Izloguj&nbsp;se</a></li>
-                    </ul>
-                </div>
-            </div> -->
-
-            <?php 
-                include 'Navigation.php'; 
-            ?>
+            <?php include 'Navigation.php'; ?>
 
             <div class="News">
                 <div class="HeadingDiv">
                     <h1>Najnovije vesti</h1>
+                    <form method="GET" style="margin-top: 10px;">
+                        <label for="limit" class="Body" style="font-family: 'nunitoBold'; font-size: 15px;">Broj vesti po stranici:</label>
+                        <select name="limit" id="limit" onchange="this.form.submit()" class="custom-font">
+                            <?php
+                            $opcije = [3, 5, 10, 15];
+                            foreach ($opcije as $opcija) {
+                                $selected = ($vestiPoStranici == $opcija) ? 'selected' : '';
+                                echo "<option value='$opcija' $selected>$opcija</option>";
+                            }
+                            ?>
+                        </select>
+                        <input type="hidden" name="page" value="1">
+                    </form>
                 </div>
+
                 <div class="AllArticles">
                     <?php
                     if ($result->num_rows > 0) {
@@ -72,8 +87,26 @@ $result = $connection->query($sql);
                     } else {
                         echo "<p>Nema dostupnih vesti.</p>";
                     }
-                    $connection->close();
                     ?>
+                </div>
+
+                <!-- Navigacija između stranica -->
+                <div style="text-align: center; margin-top: 20px;">
+                    <?php if ($stranica > 1): ?>
+                        <form method="GET" class="Buttons" style="display: inline-block; margin-right: 10px;">
+                            <input type="hidden" name="limit" value="<?= $vestiPoStranici ?>">
+                            <input type="hidden" name="page" value="<?= $stranica - 1 ?>">
+                            <button type="submit" class="ButtonCustomStyle">Prethodna strana</button>
+                        </form>
+                    <?php endif; ?>
+
+                    <?php if (($stranica * $vestiPoStranici) < $ukupnoVesti): ?>
+                        <form method="GET" class="Buttons" style="display: inline-block;">
+                            <input type="hidden" name="limit" value="<?= $vestiPoStranici ?>">
+                            <input type="hidden" name="page" value="<?= $stranica + 1 ?>">
+                            <button type="submit" class="ButtonCustomStyle">Sledeća strana</button>
+                        </form>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
