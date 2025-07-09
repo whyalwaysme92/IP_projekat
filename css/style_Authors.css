@@ -367,3 +367,14 @@ body{
     transition: ease 0.2s;
     cursor: pointer;
 }
+
+
+label {
+    font-family: 'nunitoBold';
+    font-size: 15px;
+}
+
+.SortOptions label {
+    font-family: 'nunitoBold';
+    font-size: 15px;
+}

@@ -3,7 +3,7 @@
     <head>
         <title>Administrator - newS</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/style_MainPage.css"> 
+        <link rel="stylesheet" type="text/css" href="css/style_MainPage.css">
     </head>
     <body>
         <div class="PageContentDiv">
@@ -67,88 +67,6 @@
                         </div>
                     </div>
             </div>
-    
-                <!-- <div class="PopularNews">
-                    <div class="OneArticle">
-                        <div class="ArticleHeader">Vest 5</div>
-                        <div class="ArticleDate"> 15-10-2024</div>
-                        <div class="ArticleText"> Poslednja vest koja se pojavila na nasem sajtu.</div>
-                    </div>
-                    <div class="OneArticle">
-                        <div class="ArticleHeader">Vest 4</div>
-                        <div class="ArticleDate"> 14-10-2024</div>
-                        <div class="ArticleText"> Cetvrta vest koja se pojavila na nasem sajtu.</div>
-                    </div>
-                    <div class="OneArticle">
-                        <div class="ArticleHeader">Vest 3</div>
-                        <div class="ArticleDate"> 13-10-2024</div>
-                        <div class="ArticleText"> Treca vest koja se pojavila na nasem sajtu.</div>
-                    </div>
-                    <div class="OneArticle">
-                        <div class="ArticleHeader">Vest 2</div>
-                        <div class="ArticleDate"> 12-10-2024</div>
-                        <div class="ArticleText"> Druga vest koja se pojavila na nasem sajtu.</div>
-                    </div>
-                    <div class="OneArticle">
-                        <div class="ArticleHeader">Vest 1</div>
-                        <div class="ArticleDate"> 11-10-2024</div>
-                        <div class="ArticleText"> Prva vest koja se pojavila na nasem sajtu.</div>
-                    </div>
-                </div>
-                <div class="NewestFromLikedAuthor">
-                    <div class="OneArticle">
-                        <div class="ArticleHeader">Vest 5</div>
-                        <div class="ArticleDate"> 15-10-2024</div>
-                        <div class="ArticleText"> Poslednja vest koja se pojavila na nasem sajtu.</div>
-                    </div>
-                    <div class="OneArticle">
-                        <div class="ArticleHeader">Vest 4</div>
-                        <div class="ArticleDate"> 14-10-2024</div>
-                        <div class="ArticleText"> Cetvrta vest koja se pojavila na nasem sajtu.</div>
-                    </div>
-                    <div class="OneArticle">
-                        <div class="ArticleHeader">Vest 3</div>
-                        <div class="ArticleDate"> 13-10-2024</div>
-                        <div class="ArticleText"> Treca vest koja se pojavila na nasem sajtu.</div>
-                    </div>
-                    <div class="OneArticle">
-                        <div class="ArticleHeader">Vest 2</div>
-                        <div class="ArticleDate"> 12-10-2024</div>
-                        <div class="ArticleText"> Druga vest koja se pojavila na nasem sajtu.</div>
-                    </div>
-                    <div class="OneArticle">
-                        <div class="ArticleHeader">Vest 1</div>
-                        <div class="ArticleDate"> 11-10-2024</div>
-                        <div class="ArticleText"> Prva vest koja se pojavila na nasem sajtu.</div>
-                    </div>
-                </div>
-                <div class="BestRated">
-                    <div class="OneArticle">
-                        <div class="ArticleHeader">Vest 5</div>
-                        <div class="ArticleDate"> 15-10-2024</div>
-                        <div class="ArticleText"> Poslednja vest koja se pojavila na nasem sajtu.</div>
-                    </div>
-                    <div class="OneArticle">
-                        <div class="ArticleHeader">Vest 4</div>
-                        <div class="ArticleDate"> 14-10-2024</div>
-                        <div class="ArticleText"> Cetvrta vest koja se pojavila na nasem sajtu.</div>
-                    </div>
-                    <div class="OneArticle">
-                        <div class="ArticleHeader">Vest 3</div>
-                        <div class="ArticleDate"> 13-10-2024</div>
-                        <div class="ArticleText"> Treca vest koja se pojavila na nasem sajtu.</div>
-                    </div>
-                    <div class="OneArticle">
-                        <div class="ArticleHeader">Vest 2</div>
-                        <div class="ArticleDate"> 12-10-2024</div>
-                        <div class="ArticleText"> Druga vest koja se pojavila na nasem sajtu.</div>
-                    </div>
-                    <div class="OneArticle">
-                        <div class="ArticleHeader">Vest 1</div>
-                        <div class="ArticleDate"> 11-10-2024</div>
-                        <div class="ArticleText"> Prva vest koja se pojavila na nasem sajtu.</div>
-                    </div>
-                </div> -->
             </div>
         </div>
 

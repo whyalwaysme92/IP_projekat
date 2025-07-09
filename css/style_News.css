@@ -221,11 +221,10 @@ body{
 .News .AllArticles .OneArticle .ArticleImageDiv{
     box-sizing: border-box;
     display: inline-block;
-    /* border: 0.1vw solid var(--inputBorder); */
     border: 2px solid var(--inputBorder);
-    width: 12%;
-    /* margin-right: 5%; */
-    margin-left: 13%;
+    width: 10%;           /* Match Authors.css */
+    margin-left: 5%;      /* Match Authors.css */
+    margin-right: 5%;     /* Match Authors.css */
     aspect-ratio: 1/1;
     vertical-align: middle;
     overflow: hidden;
@@ -241,8 +240,9 @@ body{
     box-sizing: border-box;
     display: inline-block;
     vertical-align: middle;
-    width: 55%;
-    margin-left: 10%;
+    width: 55%;           /* Match Authors.css */
+    margin-right: 5%;     /* Match Authors.css */
+    margin-left: 0;       /* Remove left margin */
 }
 
 .News .AllArticles .OneArticle .ArticleInformations .ArticleHeadingDiv{
@@ -298,4 +298,36 @@ body{
     font-size: 19px;
     font-family: 'nunitoBold';
     color: #5d5454;
+}
+
+.News .AllArticles .OneArticle .AuthorButtons {
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+    width: 15%;
+    text-align: center;
+}
+
+.News .AllArticles .OneArticle .AuthorButtons button {
+    height: 30px;
+    width: 47%;
+    text-align: center;
+    font-family: 'nunitoRegular';
+    font-size: 15px;
+    color: var(--background);
+    background-color: var(--red);
+    border: 2px solid var(--red);
+    vertical-align: middle;
+}
+
+.News .AllArticles .OneArticle .AuthorButtons button#Update {
+    margin-right: 6%;
+}
+
+.News .AllArticles .OneArticle .AuthorButtons button:hover {
+    background-color: var(--background);
+    color: var(--red);
+    border-color: var(--red);
+    transition: ease 0.2s;
+    cursor: pointer;
 }

@@ -25,7 +25,8 @@ $result = $connection->query($query);
 <head>
     <title>Autori - newS</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="css/style_Authors.css"> 
+    <link rel="stylesheet" type="text/css" href="css/style_Authors.css">
+    <link rel="stylesheet" type="text/css" href="css/style_Buttons.css"> 
 </head>
 <body>
     <div class="PageContentDiv">
@@ -53,8 +54,8 @@ $result = $connection->query($query);
                 <div class="HeadingDiv">
                     <h1>Autori</h1>
                     <div class="SortOptions" style="margin-top: 10px;">
-                        <form method="GET" action="Authors.php">
-                            <label for="sort">Sortiraj po:</label>
+                        <form method="GET" action="Authors.php" class="Buttons" style="display: inline-block; margin-right: 10px;">
+                            <label for="sort" class="LabelCustomStyle">Sortiraj po:</label>
                             <select name="sort" id="sort" onchange="this.form.submit()">
                                 <option value="alphabetical" <?= $sort === 'alphabetical' ? 'selected' : '' ?>>Abecedno</option>
                                 <option value="registration" <?= $sort === 'registration' ? 'selected' : '' ?>>Datum registracije</option>
