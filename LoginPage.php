@@ -11,17 +11,17 @@
     <body>
         <div class="PageContentDiv">
             <div class="PageContent">
-                // <div class="Header">
-                //     <div class="HeaderLogoImage">
-                //         <p>new<span>S</span></p>
-                //     </div>
-                //     <div class="HeaderNavigation">
-                //         <ul>
-                //             <li><a href="MainPage.php">Naslovna</a></li>
-                //             <li><a href="LoginPage.php">Uloguj&nbsp;se</a></li>
-                //         </ul>
-                //     </div>
-                // </div>
+                 <div class="Header">
+                     <div class="HeaderLogoImage">
+                         <p>new<span>S</span></p>
+                     </div>
+                     <div class="HeaderNavigation">
+                         <ul>
+                             <li><a href="MainPage.php">Naslovna</a></li>
+                             <li><a href="LoginPage.php">Uloguj&nbsp;se</a></li>
+                         </ul>
+                     </div>
+                 </div>
         
                 <?php 
                     include 'Navigation.php'; 

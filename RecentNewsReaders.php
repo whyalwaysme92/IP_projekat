@@ -1,4 +1,8 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 $connection = new mysqli("localhost", "root", "", "bazag01");
 if ($connection->connect_error) {
     die("Greška prilikom povezivanja sa bazom: " . $connection->connect_error);

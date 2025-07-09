@@ -1,4 +1,7 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 $connection = new mysqli("localhost", "root", "", "bazag01");
 

@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 if (!isset($_SESSION['IDkorisnika'])) {
     // Nije ulogovan - redirektuj na login stranicu ili pokaži grešku

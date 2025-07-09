@@ -1,7 +1,14 @@
 <?php
-
-    session_start();
-
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    
+    if (!isset($_SESSION['IDkorisnika'])) {
+        // Korisnik nije ulogovan
+        header("Location: LoginPage.php");
+        exit();
+    }
+    
     $defaultNavigation = <<<EOD
     <div class="Header">
         <div class="HeaderLogoImage">
@@ -100,7 +107,6 @@
         }
     }else{
         echo($defaultNavigation);
-        session_destroy();
     }
 
 ?>
