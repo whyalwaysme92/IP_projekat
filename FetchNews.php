@@ -53,7 +53,7 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $date = new DateTime($row['Datum']);
         echo '<div class="OneArticle">';
-        echo '<div class="ArticleHeader"> <a href="">' . htmlspecialchars($row['Naslov']) . '</a></div>';
+        echo '<div class="ArticleHeader"> <a href="ShowArticle.php?id=' . htmlspecialchars($row['IDVesti']) . '">' . htmlspecialchars($row['Naslov']) . '</a></div>';
         echo '<div class="ArticleDate"> <p>' . $date->format('Y-m-d') . '</p> <p> | </p></div>';
         #echo '<div class="ArticleAuthor"> <p>' . htmlspecialchars($row['Autor']) . '</p></div>';
         echo '<div class="ArticleGrade"> <p>' . htmlspecialchars($row['Ocena']) . '</p></div>';
