@@ -184,3 +184,72 @@ body{
     transition: ease 0.2s;
 }
 
+
+.ArticleDiv{
+    width: 1300px;
+    margin-left: 100px;
+    /* padding-bottom: 2vw; */
+    /* padding-bottom: 38px; */
+}
+
+.ArticleDiv .HeadingDiv{
+    width: 100%;
+    text-align: center;
+    /* margin-bottom: 1vw; */
+    margin-bottom: 19px;
+}
+
+.ArticleDiv .HeadingDiv h1{
+    font-family: 'nunitoExtraBold';
+    /* font-size: 2.5vw; */
+    font-size: 48px;
+    color: var(--red);
+}
+
+.ArticleDetailsAndImages{
+    overflow: hidden;
+}
+
+.ArticleDetailsAndImages .AuthorDetailsDiv{
+    padding-left: 1%;
+    padding-bottom: 1%;
+}
+
+.ArticleDetailsAndImages .AuthorDetailsDiv p{
+    font-family: 'nunitoBold';
+    /* font-size: 1vw; */
+    font-size: 19px;
+    display: inline;   
+    color: var(--inputText);
+}
+
+.ArticleDetailsAndImages > img{
+    display: inline-block;
+    width: 42%;
+    float: right;
+    max-width: 44%;
+    padding-right: 1%;
+    padding-left: 1%;
+}
+
+.ArticleDetailsAndImages .ArticleTextDiv{
+    padding-left: 1%;
+}
+
+.ArticleDetailsAndImages .ArticleTextDiv p{
+    font-family: 'nunitoBold';
+    /* font-size: 1vw; */
+    font-size: 19px;
+    /* color: var(--inputText); */
+}
+
+.ArticleDetailsAndImages .SecondImageDiv{
+    width: 100%;
+}
+
+.ArticleDetailsAndImages .SecondImageDiv img{
+    width: 98%;
+    padding-left: 1%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
