@@ -146,7 +146,7 @@ $vestiResult = $connection->query($vestiQuery);
                         <div class="OneArticle">
                             <div class="ArticleInformations">
                                 <div class="ArticleHeadingDiv">
-                                    <a href="ArticleDetails.php?id=<?= $vest['IDVesti'] ?>"><?= htmlspecialchars($vest['Naslov']) ?></a>
+                                    <a href="ShowArticle.php?id=<?= $vest['IDVesti'] ?>"><?= htmlspecialchars($vest['Naslov']) ?></a>
                                 </div>
                                 <div class="ArticleDateDiv">
                                     <p>Ocena: </p><p><?= number_format((float)$vest['Ocena'], 1) ?></p><p> | </p>

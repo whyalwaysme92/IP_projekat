@@ -36,6 +36,19 @@ $result = $connection->query($sql);
         .custom-font {
             font-family: inherit;
         }
+        .navigation-buttons-container {
+            display: flex !important;
+            justify-content: center !important;
+            gap: 30px !important;
+            margin-top: 30px !important;
+        }
+        .navigation-buttons-container form {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .navigation-buttons-container .ButtonCustomStyle {
+            min-width: 150px !important;
+        }
     </style>
 </head>
 <body>
@@ -74,7 +87,7 @@ $result = $connection->query($sql);
                         
                                 <div class="ArticleInformations">
                                     <div class="ArticleHeadingDiv">
-                                        <a href="Author.php?id=<?= htmlspecialchars($row['IDVesti']); ?>">
+                                        <a href="ShowArticle.php?id=<?= htmlspecialchars($row['IDVesti']); ?>">
                                             <?= htmlspecialchars($row['Naslov']); ?>
                                         </a>
                                     </div>

@@ -64,7 +64,10 @@ $result = $connection->query($sql);
                             <div class="OneArticle">
                                 <div class="ArticleInformations">
                                     <div class="ArticleHeadingDiv">
-                                        <a href="#"><?= htmlspecialchars($row['Naslov']) ?></a>
+                                    <a href="ShowArticle.php?id=<?= urlencode($row['IDVesti']) ?>">
+                                        <?= htmlspecialchars($row['Naslov']) ?>
+                                    </a>
+
                                     </div>
                                     <div class="ArticleDateDiv">
                                         <p>Ocena: </p><p><?= number_format($row['ProsecnaOcena'], 1) ?></p><p> | </p>

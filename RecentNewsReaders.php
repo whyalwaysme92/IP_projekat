@@ -63,7 +63,7 @@ $result = $connection->query($sql);
                             $date = new DateTime($row['Datum']);
                             echo '<div class="OneArticle">';
                             echo '<div class="ArticleInformations">';
-                            echo '<div class="ArticleHeadingDiv"><a href="Author.php?id=' . htmlspecialchars($row['IDVesti']) . '">' . htmlspecialchars($row['Naslov']) . '</a></div>';
+                            echo '<div class="ArticleHeadingDiv"><a href="ShowArticle.php?id=' . htmlspecialchars($row['IDVesti']) . '">' . htmlspecialchars($row['Naslov']) . '</a></div>';
                             echo '<div class="ArticleDateDiv">';
                             echo '<p>Ocena: </p><p>' . htmlspecialchars($row['Ocena']) . '</p><p> | </p>';
                             echo '<p>' . $date->format('d-m-Y') . '</p>';

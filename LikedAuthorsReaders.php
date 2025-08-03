@@ -16,7 +16,7 @@ if ($connection->connect_error) {
 $idCitaoca = $_SESSION['IDkorisnika'];
 
 $query = "
-    SELECT k.IDkorisnika AS IDautora, k.Ime, k.Prezime, k.Email, k.Telefon, k.Adresa, k.Slika,
+    SELECT k.IDkorisnika, k.Ime, k.Prezime, k.Email, k.Telefon, k.Adresa, k.Slika,
            AVG(o.Ocena) AS ProsecnaOcena
     FROM ocene o
     JOIN vesti v ON o.IDVesti = v.IDVesti
@@ -81,7 +81,7 @@ $result = $stmt->get_result();
                             </div>
                             <div class="AuthorInformations">
                                 <div class="AuthorHeadingDiv">
-                                    <a href="Author.php?id=<?= $author['IDautora'] ?>">
+                                    <a href="Author.php?IDkorisnika=<?= $author['IDkorisnika'] ?>">
                                         <?= htmlspecialchars($author['Ime'] . ' ' . $author['Prezime']) ?>
                                     </a>
                                 </div>

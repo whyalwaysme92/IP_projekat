@@ -73,7 +73,10 @@ $result = $stmt->get_result();
                             <div class="OneArticle">
                                 <div class="ArticleInformations">
                                     <div class="ArticleHeadingDiv">
-                                        <a href="#"><?= htmlspecialchars($row['Naslov']) ?></a>
+                                    <a href="ShowArticle.php?id=<?= urlencode($row['IDVesti']) ?>">
+                                        <?= htmlspecialchars($row['Naslov']) ?>
+                                    </a>
+
                                     </div>
                                     <div class="ArticleDateDiv">
                                         <p>Autor: </p><p><?= htmlspecialchars($row['Ime'] . ' ' . $row['Prezime']) ?></p><p> | </p>

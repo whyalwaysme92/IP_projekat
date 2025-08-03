@@ -79,7 +79,9 @@ $result = $connection->query($sql);
                                 </div>
                                 <div class="ArticleInformations">
                                     <div class="ArticleHeadingDiv">
-                                        <a href="#"><?= htmlspecialchars($vest['Naslov']) ?></a>
+                                    <a href="ShowArticle.php?id=<?= urlencode($vest['IDVesti']) ?>">
+                                        <?= htmlspecialchars($vest['Naslov']) ?>
+                                    </a>
                                     </div>
                                     <div class="ArticleDateDiv">
                                         <p><?= (new DateTime($vest['Datum']))->format('d-m-Y') ?></p>
