@@ -16,6 +16,5 @@ idkor 4 5 6 8 9 10
 
 uraditi:
 
--hiperlinkovi za autore i vesti
 -RecentNewsAdmins.php srediti dugmice
 -azuriranje i brisanje vesti: admin + autor

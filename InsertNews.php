@@ -14,8 +14,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $datum = $_POST['Datum'] ?? '';
     $apstrakt = $_POST['Apstrakt'] ?? '';
     $tekst = $_POST['Tekst'] ?? '';
-    $ocena = 0; 
+    $ocena = 0.0; // Default ocena, može se kasnije promeniti ako je potrebno
     
+    $IDkorisnika = $_SESSION['IDkorisnika'] ?? null;
+
     $prvaSlika = $_FILES['PrvaSlikaVesti']['name'] ?? '';
     $drugaSlika = $_FILES['DrugaSlikaVesti']['name'] ?? '';
     
@@ -30,13 +32,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     move_uploaded_file($_FILES['PrvaSlikaVesti']['tmp_name'], $prvaSlikaPath);
     move_uploaded_file($_FILES['DrugaSlikaVesti']['tmp_name'], $drugaSlikaPath);
     
-    $query = "INSERT INTO vesti (Naslov, Datum, Apstrakt, Tekst, PrvaSlikaVesti, DrugaSlikaVesti, Ocena)
+    $query = "INSERT INTO vesti (Naslov, Apstrakt, Tekst, PrvaSlikaVesti, DrugaSlikaVesti, Ocena, IDkorisnika)
               VALUES (?, ?, ?, ?, ?, ?, ?)";
     
     if ($stmt = $connection->prepare($query)) {
-        $stmt->bind_param("ssssssi", $naslov, $datum, $apstrakt, $tekst, $prvaSlikaPath, $drugaSlikaPath, $ocena);
+        $stmt->bind_param("sssssdi", $naslov, $apstrakt, $tekst, $prvaSlikaPath, $drugaSlikaPath, $ocena, $IDkorisnika);
         if ($stmt->execute()) {
             header("Location: MyNews.php");
+            exit();
         } else {
             echo "Greška pri unosu vesti: " . $stmt->error;
         }

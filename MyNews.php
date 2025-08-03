@@ -92,7 +92,9 @@ $result = $connection->query($sql);
                                 </div>
                                 <div class="ArticleButtons">
                                     <button id="Update" style="margin-bottom: 10px;">Ažuriraj</button>
-                                    <button>Briši</button>
+                                    <a href="DeleteArticle.php?id=<?= urlencode($vest['IDVesti']) ?>" >
+                                        <button>Briši</button>
+                                    </a>
                                 </div>
                             </div>
                             <?php

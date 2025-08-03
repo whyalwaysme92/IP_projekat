@@ -106,7 +106,7 @@ $result = $connection->query($sql);
                                     <a href="UpdateArticle.php?id=<?= $row['IDVesti']; ?>">
                                         <button id="Update">Ažuriraj</button>
                                     </a>
-                                    <a href="DeleteArticle.php?id=<?= $row['IDVesti']; ?>" onclick="return confirm('Da li ste sigurni da želite da obrišete vest?');">
+                                    <a href="DeleteArticle.php?id=<?= $row['IDVesti']; ?>" >
                                         <button>Briši</button>
                                     </a>
                                 </div>
