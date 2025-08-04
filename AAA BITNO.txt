@@ -17,4 +17,4 @@ idkor 4 5 6 8 9 10
 uraditi:
 
 -RecentNewsAdmins.php srediti dugmice
--azuriranje i brisanje vesti: admin + autor
+-MyNews.php razmak izmedju dugmica
