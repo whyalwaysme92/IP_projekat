@@ -18,3 +18,4 @@ uraditi:
 
 -RecentNewsAdmins.php srediti dugmice
 -MyNews.php razmak izmedju dugmica
+-na stranici za prikaz vesti srediti dizajn oko ocenjivanja

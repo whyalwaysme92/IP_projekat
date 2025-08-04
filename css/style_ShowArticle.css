@@ -253,3 +253,16 @@ body{
     padding-top: 1%;
     padding-bottom: 1%;
 }
+
+.star-rating {
+    font-size: 2em;
+    direction: ltr;
+    unicode-bidi: bidi-override;
+	}
+
+.star-rating .star:hover,
+.star-rating .star:hover ~ .star,
+.star-rating .star.selected,
+.star-rating .star.selected ~ .star {
+    color: gold;
+}
