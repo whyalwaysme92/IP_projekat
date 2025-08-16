@@ -30,8 +30,6 @@ $result = $connection->query($sql);
     <title>Najnovije vesti - newS</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/style_News.css"> 
-    <link rel="stylesheet" type="text/css" href="css/style_Authors.css">
-    <link rel="stylesheet" type="text/css" href="css/style_Buttons.css"> 
     <style>
         .custom-font {
             font-family: inherit;
