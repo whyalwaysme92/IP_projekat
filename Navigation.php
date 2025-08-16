@@ -8,6 +8,8 @@
         // header("Location: LoginPage.php");
         // exit();
     // }
+
+    $userType = (session_status() === PHP_SESSION_NONE) ? 4 : (isset($_SESSION['tip']) ? (int)$_SESSION['tip'] : 4);
     
     $defaultNavigation = <<<EOD
     <div class="Header">
@@ -15,7 +17,7 @@
             <p>new<span>S</span></p>
         </div>
         <div class="Time" id="TimeDiv"></div>
-        <div class="HeaderNavigation">
+        <div class="HeaderNavigation" data-user-type="$userType">
             <ul>
                 <li><a href="MainPage.php">Naslovna</a></li>
                 <li><a href="LoginPage.php">Uloguj&nbsp;se</a></li>
@@ -30,7 +32,7 @@
             <p>new<span>S</span></p>
         </div>
         <div class="Time" id="TimeDiv"></div>
-        <div class="HeaderNavigation">
+        <div class="HeaderNavigation" data-user-type="$userType">
             <ul>
                 <li><a href="Admins.php">Naslovna</a></li>
                 <li><a href="RecentNewsAdmins.php">Najnovije&nbsp;vesti</a></li>
@@ -48,7 +50,7 @@
             <p>new<span>S</span></p>
         </div>
         <div class="Time" id="TimeDiv"></div>
-        <div class="HeaderNavigation">
+        <div class="HeaderNavigation" data-user-type="$userType">
             <ul>
                 <li><a href="AuthorsMainPage.php">Naslovna</a></li>
                 <li>
@@ -76,7 +78,7 @@
             <p>new<span>S</span></p>
         </div>
         <div class="Time" id="TimeDiv"></div>
-        <div class="HeaderNavigation">
+        <div class="HeaderNavigation" data-user-type="$userType">
             <ul>
                 <li><a href="ReadersMainPage.php">Naslovna</a></li>
                 <li>

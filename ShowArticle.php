@@ -56,7 +56,7 @@ $connection->close();
         }
     </style>
 </head>
-<body data-user-type="<?php echo (session_status() === PHP_SESSION_NONE) ? 3 : (isset($_SESSION['tip']) ? (int)$_SESSION['tip'] : 3);?>">
+<body>
     <div class="PageContentDiv">
         <div class="PageContent">
             <?php include 'Navigation.php'; ?>
