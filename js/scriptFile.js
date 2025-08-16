@@ -1,6 +1,6 @@
-		const userType = parseInt(document.body.dataset.userType, 10);
+		const userType = parseInt(document.querySelector(".HeaderNavigation").dataset.userType, 10);
 
-		if (userType == 0) {
+		if (userType == 1) {
 			let logoutTimer;
 			const logoutAfter = 60 * 1000;
 
