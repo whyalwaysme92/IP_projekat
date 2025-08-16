@@ -264,11 +264,24 @@ body{
     padding-bottom: 1%;
 }
 
+.RatingDiv h3{
+    font-family: 'nunitoBold';
+    font-size: 19px;
+}
+
+.RatingDiv .RatingMessage{
+    font-family: 'nunitoBold';
+    color: green; 
+    margin-top: 10px;
+    font-size: 19px;
+}
+
 .star-rating {
     font-size: 2em;
     direction: ltr;
     unicode-bidi: bidi-override;
-	}
+    font-family: 'nunitoBold';
+}
 
 .star-rating .star:hover,
 .star-rating .star:hover ~ .star,
