@@ -305,6 +305,11 @@ body{
     display: inline-block;
     vertical-align: middle;
     width: 15%;
+    text-align: center;
+}
+
+.MyNews .AllMyArticles .OneArticle .ArticleButtons a{
+    text-decoration: none;
 }
 
 .MyNews .AllMyArticles .OneArticle .ArticleButtons button{
@@ -322,7 +327,7 @@ body{
 }
 
 .MyNews .AllMyArticles .OneArticle .ArticleButtons button#Update{
-    margin-right: 6%;
+    margin-right: 2%;
 }
 
 .MyNews .AllMyArticles .OneArticle .ArticleButtons button:hover{
