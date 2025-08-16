@@ -3,17 +3,18 @@
         session_start();
     }
     
-    if (!isset($_SESSION['IDkorisnika'])) {
+    // if (!isset($_SESSION['IDkorisnika'])) {
         // Korisnik nije ulogovan
-        header("Location: LoginPage.php");
-        exit();
-    }
+        // header("Location: LoginPage.php");
+        // exit();
+    // }
     
     $defaultNavigation = <<<EOD
     <div class="Header">
         <div class="HeaderLogoImage">
             <p>new<span>S</span></p>
         </div>
+        <div class="Time" id="TimeDiv"></div>
         <div class="HeaderNavigation">
             <ul>
                 <li><a href="MainPage.php">Naslovna</a></li>
@@ -28,6 +29,7 @@
         <div class="HeaderLogoImage">
             <p>new<span>S</span></p>
         </div>
+        <div class="Time" id="TimeDiv"></div>
         <div class="HeaderNavigation">
             <ul>
                 <li><a href="Admins.php">Naslovna</a></li>
@@ -45,6 +47,7 @@
         <div class="HeaderLogoImage">
             <p>new<span>S</span></p>
         </div>
+        <div class="Time" id="TimeDiv"></div>
         <div class="HeaderNavigation">
             <ul>
                 <li><a href="AuthorsMainPage.php">Naslovna</a></li>
@@ -72,6 +75,7 @@
         <div class="HeaderLogoImage">
             <p>new<span>S</span></p>
         </div>
+        <div class="Time" id="TimeDiv"></div>
         <div class="HeaderNavigation">
             <ul>
                 <li><a href="ReadersMainPage.php">Naslovna</a></li>

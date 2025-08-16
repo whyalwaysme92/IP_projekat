@@ -75,6 +75,7 @@ body{
     width: 1500px;
     /* margin-bottom: 1.5vw; */
     margin-bottom: 29px;
+    position: relative;
 }
 
 .Header .HeaderLogoImage{
@@ -99,6 +100,15 @@ body{
     line-height: 88px;
 }
 
+.Header .Time{
+    position: absolute;
+    right: 0;
+    top: 60px;
+    padding-right: 20px;
+    font-family: 'nunitoBold';
+    color: var(--background);
+    font-size: 20px;
+}
 
 .Header .HeaderNavigation{
     /* width: 100%; */
@@ -551,7 +561,14 @@ body{
     color: #5d5454;
 }
 
-
+.MainPartOfPage .Articles .ErrorMessageDiv{
+    font-family: 'nunitoBold';
+    font-size: 18px;
+    line-height: 18px;
+    color: var(--red);
+    padding-left: 2%;
+    padding-top: 10px;
+}
 
 /* #f5f0f0 */
 /* #b30e0e */

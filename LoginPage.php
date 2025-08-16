@@ -1,27 +1,25 @@
-<?php
-
-    $htmlStranica =<<<'EOD'
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <title>Login - newS</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="css/style_Login.css"> 
     </head>
-    <body>
+    <body data-user-type="<?php echo (session_status() === PHP_SESSION_NONE) ? 3 : (isset($_SESSION['tip']) ? (int)$_SESSION['tip'] : 3);?>">
         <div class="PageContentDiv">
             <div class="PageContent">
-                 <div class="Header">
+                 <!-- <div class="Header">
                      <div class="HeaderLogoImage">
                          <p>new<span>S</span></p>
                      </div>
+                     <div class="Time" id="TimeDiv"></div>
                      <div class="HeaderNavigation">
                          <ul>
                              <li><a href="MainPage.php">Naslovna</a></li>
                              <li><a href="LoginPage.php">Uloguj&nbsp;se</a></li>
                          </ul>
                      </div>
-                 </div>
+                 </div> -->
         
                 <?php 
                     include 'Navigation.php'; 
@@ -40,15 +38,7 @@
                 </div>
             </div>
         </div>
+        <script src="js/scriptFile.js"></script>
     </body>
 </html>
-EOD;
-
-
-
-
-
-    echo($htmlStranica);
-
-?>
 
