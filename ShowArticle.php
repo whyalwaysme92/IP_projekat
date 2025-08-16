@@ -50,13 +50,13 @@ $connection->close();
             cursor: pointer;
             color: lightgray;
         }
-        .star.hover,
-        .star.selected {
+        .star.selected,
+        .star.hovered {
             color: gold;
         }
     </style>
 </head>
-<body>
+<body data-user-type="<?php echo $currentUserType ?? ''; ?>">
     <div class="PageContentDiv">
         <div class="PageContent">
             <?php include 'Navigation.php'; ?>
@@ -94,7 +94,7 @@ $connection->close();
                         <span class="star<?php echo $i <= $currentRating ? ' selected' : ''; ?>" data-value="<?php echo $i; ?>">★</span>
                     <?php endfor; ?>
                 </div>
-                <div id="ratingMessage" style="color: green; margin-top: 10px;"></div>
+                <div class="RatingMessage" style="color: green; margin-top: 10px;"></div>
             </div>
             <?php endif; ?>
         </div>
@@ -113,16 +113,16 @@ $connection->close();
             stars.forEach(star => {
                 star.addEventListener("mouseover", function() {
                     const value = parseInt(this.getAttribute("data-value"));
-                    highlightStars(value);
+                    highlightStars(value, true);
                 });
 
                 star.addEventListener("mouseout", function() {
-                    highlightStars(selected);
+                    highlightStars(selected, false);
                 });
 
                 star.addEventListener("click", function() {
                     selected = parseInt(this.getAttribute("data-value"));
-                    highlightStars(selected);
+                    highlightStars(selected, false);
 
                     fetch("SubmitRating.php", {
                         method: "POST",
@@ -131,25 +131,34 @@ $connection->close();
                     })
                     .then(response => response.text())
                     .then(data => {
-                        document.getElementById("ratingMessage").innerText = "Uspešno ste ocenili vest!";
+                        document.querySelector(".RatingDiv .RatingMessage").innerText = "Uspešno ste ocenili vest!";
                     })
                     .catch(error => {
-                        document.getElementById("ratingMessage").innerText = "Došlo je do greške.";
+                        document.querySelector(".RatingDiv .RatingMessage").innerText = "Došlo je do greške.";
                     });
                 });
             });
 
-            function highlightStars(rating) {
+            function highlightStars(rating, isHover) {
                 stars.forEach(star => {
                     const value = parseInt(star.getAttribute("data-value"));
-                    star.classList.toggle("selected", value <= rating);
+                    if (isHover) {
+                        star.classList.toggle("hovered", value <= rating);
+                        star.classList.remove("selected");
+                    } else {
+                        star.classList.toggle("selected", value <= rating);
+                        star.classList.remove("hovered");
+                    }
                 });
             }
 
-            highlightStars(selected);
-        });
 
-		const userType = parseInt(document.body.dataset.userType, 10);
+            star.addEventListener("mouseout", function() {
+                  highlightStars(selected, false);
+                });
+
+        });
+        const userType = parseInt(document.body.dataset.userType, 10);
 
 		if (userType == 3) {
 			let logoutTimer;
@@ -183,6 +192,7 @@ $connection->close();
         showTime();
 
         setInterval(showTime, 1000);
+		
     </script>
 </body>
 </html>
