@@ -56,7 +56,7 @@ $connection->close();
         }
     </style>
 </head>
-<body>
+<body data-user-type="<?php echo (session_status() === PHP_SESSION_NONE) ? 3 : (isset($_SESSION['tip']) ? (int)$_SESSION['tip'] : 3);?>">
     <div class="PageContentDiv">
         <div class="PageContent">
             <?php include 'Navigation.php'; ?>
@@ -101,6 +101,7 @@ $connection->close();
     </div>
 
     <script>
+
         document.addEventListener("DOMContentLoaded", function() {
             const ratingContainer = document.querySelector(".star-rating");
             if (!ratingContainer) return;
@@ -147,6 +148,41 @@ $connection->close();
 
             highlightStars(selected);
         });
+
+		const userType = parseInt(document.body.dataset.userType, 10);
+
+		if (userType == 3) {
+			let logoutTimer;
+			const logoutAfter = 5 * 1000;
+
+			function resetTimer() {
+				clearTimeout(logoutTimer);
+				logoutTimer = setTimeout(() => {
+					alert("Niste aktivni 1 minut. Bićete izlogovani.");
+					window.location.href = "Logout.php";
+				}, logoutAfter);
+			}
+
+			document.addEventListener("mousemove", resetTimer);
+			document.addEventListener("keydown", resetTimer);
+			document.addEventListener("click", resetTimer);
+			document.addEventListener("scroll", resetTimer);
+
+			resetTimer();
+		}
+
+        function showTime() {
+            const now = new Date();
+            let hours = now.getHours().toString().padStart(2, '0');
+            let minutes = now.getMinutes().toString().padStart(2, '0');
+            let seconds = now.getSeconds().toString().padStart(2, '0');
+
+            document.getElementById('TimeDiv').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        showTime();
+
+        setInterval(showTime, 1000);
     </script>
 </body>
 </html>

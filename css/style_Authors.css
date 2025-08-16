@@ -75,6 +75,7 @@ body{
     width: 1500px;
     /* margin-bottom: 1.5vw; */
     margin-bottom: 29px;
+    position: relative;
 }
 
 .Header .HeaderLogoImage{
@@ -99,6 +100,15 @@ body{
     line-height: 88px;
 }
 
+.Header .Time{
+    position: absolute;
+    right: 0;
+    top: 60px;
+    padding-right: 20px;
+    font-family: 'nunitoBold';
+    color: var(--background);
+    font-size: 20px;
+}
 
 .Header .HeaderNavigation{
     /* width: 100%; */

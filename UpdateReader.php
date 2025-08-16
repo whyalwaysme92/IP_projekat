@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/style_Register.css"> 
 </head>
-<body>
+<body data-user-type="<?php echo (session_status() === PHP_SESSION_NONE) ? 3 : (isset($_SESSION['tip']) ? (int)$_SESSION['tip'] : 3);?>">
     <div class="PageContentDiv">
         <div class="PageContent">
             <!-- <div class="Header">
@@ -94,6 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </div>
     </div>
+    <script src="js/scriptFile.js"></script>
 </body>
 </html>
 

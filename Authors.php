@@ -28,7 +28,7 @@ $result = $connection->query($query);
     <link rel="stylesheet" type="text/css" href="css/style_Authors.css">
     <link rel="stylesheet" type="text/css" href="css/style_Buttons.css"> 
 </head>
-<body>
+<body data-user-type="<?php echo (session_status() === PHP_SESSION_NONE) ? 3 : (isset($_SESSION['tip']) ? (int)$_SESSION['tip'] : 3);?>">
     <div class="PageContentDiv">
         <div class="PageContent">
             <!-- <div class="Header">
@@ -106,6 +106,7 @@ $result = $connection->query($query);
             </div>
         </div>
     </div>
+    <script src="js/scriptFile.js"></script>
 </body>
 </html>
 
