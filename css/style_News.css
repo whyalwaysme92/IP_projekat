@@ -318,10 +318,15 @@ body{
     text-align: center;
 }
 
+.News .AllArticles .OneArticle .AuthorButtons a{
+    text-decoration: none;
+}
+
 .News .AllArticles .OneArticle .AuthorButtons button {
     height: 30px;
     width: 47%;
     text-align: center;
+    display: inline-block;
     font-family: 'nunitoRegular';
     font-size: 15px;
     color: var(--background);
@@ -331,7 +336,8 @@ body{
 }
 
 .News .AllArticles .OneArticle .AuthorButtons button#Update {
-    margin-right: 6%;
+    /* margin-right: 6%; */
+    margin-right: 2%;
 }
 
 .News .AllArticles .OneArticle .AuthorButtons button:hover {
