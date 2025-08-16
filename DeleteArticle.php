@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <p><strong>Apstrakt:</strong> <?php echo htmlspecialchars($vest['Apstrakt']); ?></p>
                     </div>
                     <button type="submit" style="background-color: red;">Obriši vest</button>
-                    <a href="MyNews.php"><button type="button">Otkaži</button></a>
+                    <a href="javascript:history.back()"><button type="button">Otkaži</button></a>
                 </form>
             </div>
         </div>
