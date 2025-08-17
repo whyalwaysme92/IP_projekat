@@ -280,12 +280,32 @@ body{
     font-size: 2em;
     direction: ltr;
     unicode-bidi: bidi-override;
-    font-family: 'nunitoBold';
+    font-family: 'nunitoBold', sans-serif;
+    display: inline-block;
+    line-height: 1;
 }
 
-.star-rating .star:hover,
-.star-rating .star:hover ~ .star,
-.star-rating .star.selected,
-.star-rating .star.selected ~ .star {
-    color: gold;
+.star-rating .star {
+    color: #cccccc;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    display: inline-block;
+    padding: 0 3px;
+    font-size: 1.2em;
 }
+
+.star-rating .star.hovered {
+    color: #ffcc00 !important;
+    transform: scale(1.1);
+}
+
+.star-rating .star.selected {
+    color: #ff9900 !important;
+}
+
+/* Ensure no other styles are overriding these */
+.star-rating .star.hovered,
+.star-rating .star.selected {
+    text-shadow: 0 0 5px rgba(255, 204, 0, 0.5);
+}
+

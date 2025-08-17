@@ -42,17 +42,36 @@ $connection->close();
     <link rel="stylesheet" type="text/css" href="css/style_ShowArticle.css">
     <style>
         .star-rating {
+            font-size: 2em;
             direction: ltr;
+            unicode-bidi: bidi-override;
+            font-family: 'nunitoBold', sans-serif;
             display: inline-block;
-            font-size: 1.8em;
+            line-height: 1;
         }
-        .star {
+
+        .star-rating .star {
+            color: #cccccc;
             cursor: pointer;
-            color: lightgray;
+            transition: color 0.2s ease;
+            display: inline-block;
+            padding: 0 3px;
+            font-size: 1.2em;
         }
-        .star.selected,
-        .star.hovered {
-            color: gold;
+
+        .star-rating .star.hovered {
+            color: #ffcc00 !important;
+            transform: scale(1.1);
+        }
+
+        .star-rating .star.selected {
+            color: #ff9900 !important;
+        }
+
+        /* Ensure no other styles are overriding these */
+        .star-rating .star.hovered,
+        .star-rating .star.selected {
+            text-shadow: 0 0 5px rgba(255, 204, 0, 0.5);
         }
     </style>
 </head>
@@ -87,98 +106,42 @@ $connection->close();
             </div>
 
             <?php if ($currentUserId && in_array($currentUserType, [1, 2])): ?>
-            <div class="RatingDiv">
-                <h3>Ocenite vest:</h3>
-                <div class="star-rating" data-current-rating="<?php echo $currentRating; ?>" data-article-id="<?php echo $articleId; ?>">
-                    <?php for ($i = 1; $i <= 5; $i++): ?>
-                        <span class="star<?php echo $i <= $currentRating ? ' selected' : ''; ?>" data-value="<?php echo $i; ?>">★</span>
-                    <?php endfor; ?>
+                <div class="RatingDiv">
+                    <h3>Ocenite vest:</h3>
+                    <div class="star-rating" data-current-rating="<?php echo $currentRating; ?>" data-article-id="<?php echo $articleId; ?>">
+                        <?php for ($i = 1; $i <= 5; $i++): ?>
+                            <span class="star<?php echo $i <= $currentRating ? ' selected' : ''; ?>" data-value="<?php echo $i; ?>">★</span>
+                        <?php endfor; ?>
+                    </div>
+                    <div class="RatingMessage" style="color: green; margin-top: 10px;"></div>
                 </div>
-                <div class="RatingMessage" style="color: green; margin-top: 10px;"></div>
-            </div>
             <?php endif; ?>
         </div>
     </div>
 
     <script>
 
-        document.addEventListener("DOMContentLoaded", function() {
-            const ratingContainer = document.querySelector(".star-rating");
-            if (!ratingContainer) return;
-
-            const stars = ratingContainer.querySelectorAll(".star");
-            const articleId = ratingContainer.getAttribute("data-article-id");
-            let selected = parseInt(ratingContainer.getAttribute("data-current-rating"));
-
-            stars.forEach(star => {
-                star.addEventListener("mouseover", function() {
-                    const value = parseInt(this.getAttribute("data-value"));
-                    highlightStars(value, true);
-                });
-
-                star.addEventListener("mouseout", function() {
-                    highlightStars(selected, false);
-                });
-
-                star.addEventListener("click", function() {
-                    selected = parseInt(this.getAttribute("data-value"));
-                    highlightStars(selected, false);
-
-                    fetch("SubmitRating.php", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                        body: `rating=${selected}&article_id=${articleId}`
-                    })
-                    .then(response => response.text())
-                    .then(data => {
-                        document.querySelector(".RatingDiv .RatingMessage").innerText = "Uspešno ste ocenili vest!";
-                    })
-                    .catch(error => {
-                        document.querySelector(".RatingDiv .RatingMessage").innerText = "Došlo je do greške.";
-                    });
-                });
-            });
-
-            function highlightStars(rating, isHover) {
-                stars.forEach(star => {
-                    const value = parseInt(star.getAttribute("data-value"));
-                    if (isHover) {
-                        star.classList.toggle("hovered", value <= rating);
-                        star.classList.remove("selected");
-                    } else {
-                        star.classList.toggle("selected", value <= rating);
-                        star.classList.remove("hovered");
-                    }
-                });
-            }
-
-
-            star.addEventListener("mouseout", function() {
-                  highlightStars(selected, false);
-                });
-
-        });
         const userType = parseInt(document.body.dataset.userType, 10);
 
-		if (userType == 3) {
-			let logoutTimer;
-			const logoutAfter = 5 * 1000;
+        if (userType == 1) {
+            let logoutTimer;
+            const logoutAfter = 60 * 1000;
 
-			function resetTimer() {
-				clearTimeout(logoutTimer);
-				logoutTimer = setTimeout(() => {
-					alert("Niste aktivni 1 minut. Bićete izlogovani.");
-					window.location.href = "Logout.php";
-				}, logoutAfter);
-			}
+            function resetTimer() {
+                clearTimeout(logoutTimer);
+                logoutTimer = setTimeout(() => {
+                    alert("Niste aktivni 1 minut. Bićete izlogovani.");
+                    window.location.href = "Logout.php";
+                }, logoutAfter);
+            }
 
-			document.addEventListener("mousemove", resetTimer);
-			document.addEventListener("keydown", resetTimer);
-			document.addEventListener("click", resetTimer);
-			document.addEventListener("scroll", resetTimer);
+            document.addEventListener("mousemove", resetTimer);
+            document.addEventListener("keydown", resetTimer);
+            document.addEventListener("click", resetTimer);
+            document.addEventListener("scroll", resetTimer);
 
-			resetTimer();
-		}
+            resetTimer();
+        }
 
         function showTime() {
             const now = new Date();
@@ -192,6 +155,73 @@ $connection->close();
         showTime();
 
         setInterval(showTime, 1000);
+        
+        document.addEventListener("DOMContentLoaded", function() {
+    const ratingContainer = document.querySelector(".star-rating");
+    if (!ratingContainer) return;
+
+    const stars = ratingContainer.querySelectorAll(".star");
+    const articleId = ratingContainer.dataset.articleId;
+    let selected = parseInt(ratingContainer.dataset.currentRating) || 0;
+    let hovered = 0;
+
+    // Initialize stars with current rating
+    updateStars();
+
+    stars.forEach(star => {
+        star.addEventListener("mouseover", function() {
+            hovered = parseInt(this.dataset.value);
+            updateStars();
+        });
+
+        star.addEventListener("mouseout", function() {
+            hovered = 0;
+            updateStars();
+        });
+
+        star.addEventListener("click", function() {
+            selected = parseInt(this.dataset.value);
+            updateStars();
+            
+            fetch("SubmitRating.php", {
+                method: "POST",
+                headers: { 
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "X-Requested-With": "XMLHttpRequest"
+                },
+                body: `rating=${selected}&article_id=${articleId}`
+            })
+            .then(response => {
+                if (!response.ok) throw new Error("Network response was not ok");
+                return response.text();
+            })
+            .then(data => {
+                const messageDiv = document.querySelector(".RatingMessage");
+                if (messageDiv) {
+                    messageDiv.textContent = "Uspešno ste ocenili vest!";
+                    setTimeout(() => messageDiv.textContent = "", 3000);
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                const messageDiv = document.querySelector(".RatingMessage");
+                if (messageDiv) {
+                    messageDiv.textContent = "Došlo je do greške prilikom ocenjivanja.";
+                    messageDiv.style.color = "red";
+                }
+            });
+        });
+    });
+
+    function updateStars() {
+        stars.forEach(star => {
+            const value = parseInt(star.dataset.value);
+            star.classList.toggle("selected", value <= selected);
+            star.classList.toggle("hovered", hovered > 0 && value <= hovered);
+        });
+    }
+});
+        
 		
     </script>
 </body>
